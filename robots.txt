@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://offliner.app/sitemap.xml

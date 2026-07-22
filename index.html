@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offliner: Screen Time and App Blocker for iPhone</title>
+<meta name="description" content="Offliner locks the apps that eat your day and counts every second you win back, accurate to the second. One streak, no way to cheat it. Free on the App Store.">
+<link rel="canonical" href="https://offliner.app/">
+<meta name="theme-color" content="#0B0C12">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Offliner">
+<meta property="og:url" content="https://offliner.app/">
+<meta property="og:title" content="Offliner: Screen Time and App Blocker for iPhone">
+<meta property="og:description" content="Lock the apps that eat your day. Track every second you win back. Build a streak you will not want to break.">
+<meta property="og:image" content="https://offliner.app/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Offliner",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "url": "https://offliner.app/",
+  "downloadUrl": "https://apps.apple.com/app/id6758021299",
+  "description": "Offliner locks the apps that eat your day and counts every second you win back, accurate to the second.",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "2" }
+}
+</script>
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- ====================== HEADER ====================== -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="/" aria-label="Offliner home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="#F0632B"/>
+        <path d="M16 1a15 15 0 0 1 0 30z" fill="#C8391B"/>
+      </svg>
+      Offliner
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/why.html">Why Offliner</a>
+      <a href="/about.html">About</a>
+    </nav>
+
+    <div class="header__right">
+      <div class="socials">
+        <a href="https://www.instagram.com/offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="Offliner on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="Offliner on TikTok">
+          <svg viewBox="-0.323 -3.128 42.684 42.128" aria-hidden="true"><path d="M14 15.599v-1.486A13.1 13.1 0 0 0 12.337 14C5.535 14 0 19.18 0 25.547 0 29.452 2.086 32.91 5.267 35c-2.13-2.132-3.315-4.942-3.313-7.861 0-6.276 5.377-11.394 12.046-11.54"/><path d="M14.327 32c2.876 0 5.221-2.273 5.328-5.107l.01-25.292h4.65A8.72 8.72 0 0 1 24.164 0h-6.35l-.011 25.293c-.106 2.832-2.453 5.105-5.328 5.105a5.329 5.329 0 0 1-2.476-.61A5.34 5.34 0 0 0 14.327 32m18.672-21.814V8.78a8.818 8.818 0 0 1-4.81-1.421A8.85 8.85 0 0 0 33 10.186"/><path d="M28 7.718A8.63 8.63 0 0 1 25.832 2h-1.697A8.735 8.735 0 0 0 28 7.718M12.325 20.065c-2.94.004-5.322 2.361-5.325 5.27A5.267 5.267 0 0 0 9.854 30a5.2 5.2 0 0 1-1.008-3.073c.003-2.91 2.385-5.268 5.325-5.271.55 0 1.075.09 1.572.244v-6.4a11.72 11.72 0 0 0-1.572-.114c-.092 0-.183.006-.274.007v4.916a5.286 5.286 0 0 0-1.572-.244"/><path d="M32.153 11v4.884a15.15 15.15 0 0 1-8.813-2.811V25.84c0 6.377-5.23 11.565-11.658 11.565-2.485 0-4.789-.778-6.682-2.097A11.67 11.67 0 0 0 13.528 39c6.429 0 11.659-5.188 11.659-11.564V14.668A15.15 15.15 0 0 0 34 17.478v-6.283A8.87 8.87 0 0 1 32.153 11"/><path d="M23.979 25.42V12.632A15.741 15.741 0 0 0 33 15.448v-4.89a9.083 9.083 0 0 1-4.912-2.82C26.016 6.431 24.586 4.358 24.132 2h-4.747l-.01 25.215c-.11 2.824-2.505 5.09-5.44 5.09-1.754-.002-3.398-.822-4.42-2.204-1.794-.913-2.919-2.716-2.92-4.682.003-2.92 2.44-5.285 5.45-5.289.56 0 1.098.09 1.608.245v-4.933C7.202 15.589 2 20.722 2 27.016c0 3.045 1.219 5.816 3.205 7.885A12.115 12.115 0 0 0 12.045 37c6.58 0 11.934-5.195 11.934-11.58"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@OfflinerApp" target="_blank" rel="noopener noreferrer" aria-label="Offliner on YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+      <a class="btn btn--primary btn--sm" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Get the app</a>
+    </div>
+
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a class="mobile-link" href="/">Home</a>
+  <a class="mobile-link" href="/why.html">Why Offliner</a>
+  <a class="mobile-link" href="/about.html">About</a>
+  <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Download on the App Store</a>
+  <div class="socials">
+    <a href="https://www.instagram.com/offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+    <a href="https://www.tiktok.com/@offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="-0.323 -3.128 42.684 42.128"><path d="M23.979 25.42V12.632A15.741 15.741 0 0 0 33 15.448v-4.89a9.083 9.083 0 0 1-4.912-2.82C26.016 6.431 24.586 4.358 24.132 2h-4.747l-.01 25.215c-.11 2.824-2.505 5.09-5.44 5.09-1.754-.002-3.398-.822-4.42-2.204-1.794-.913-2.919-2.716-2.92-4.682.003-2.92 2.44-5.285 5.45-5.289.56 0 1.098.09 1.608.245v-4.933C7.202 15.589 2 20.722 2 27.016c0 3.045 1.219 5.816 3.205 7.885A12.115 12.115 0 0 0 12.045 37c6.58 0 11.934-5.195 11.934-11.58"/></svg></a>
+    <a href="https://www.youtube.com/@OfflinerApp" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </div>
+</div>
+
+<main>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="pill">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </span>
+        <span>5.0 on the App Store</span>
+      </span>
+    </div>
+
+    <h1 class="reveal" data-d="1">Take your attention back.</h1>
+
+    <p class="lede reveal" data-d="2">
+      Offliner locks the apps that eat your day and counts every second you win back.
+      One streak. No way to cheat it.
+    </p>
+
+    <div class="btn-row reveal" data-d="3">
+      <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.9 2.37-4.3 2.48-4.37-1.35-1.98-3.45-2.25-4.2-2.28-1.79-.18-3.49 1.05-4.4 1.05-.9 0-2.3-1.03-3.79-1-1.95.03-3.75 1.13-4.75 2.87-2.02 3.51-.52 8.7 1.45 11.55.96 1.39 2.11 2.95 3.62 2.9 1.45-.06 2-.94 3.76-.94s2.25.94 3.79.91c1.56-.03 2.55-1.42 3.5-2.82 1.1-1.62 1.56-3.19 1.58-3.27-.03-.02-3.03-1.17-3.06-4.6M14.2 3.87c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.54.77-3.37 1.73-.74.86-1.39 2.23-1.21 3.54 1.28.1 2.59-.65 3.39-1.62"/></svg>
+        Download on the App Store
+      </a>
+      <a class="btn btn--glass btn--lg" href="/why.html">See how it works</a>
+    </div>
+
+    <p class="btn-note reveal" data-d="4">iPhone and iPad. Your data never leaves your device.</p>
+
+    <div class="mt-l reveal" data-d="4">
+      <div class="phone">
+        <div class="phone__screen">
+          <div class="phone__island" aria-hidden="true"></div>
+          <!-- Replace this whole placeholder div with:
+               <img src="/assets/img/screens/home.png" alt="Offliner home screen showing a 14 day streak" width="1290" height="2796"> -->
+          <div class="phone__placeholder">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+            <span>Home screen<br>screenshot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CREDIBILITY MARQUEE ====================== -->
+<section class="section--tight">
+  <div class="wrap reveal">
+    <p class="label center" style="margin-bottom:26px">Built on</p>
+  </div>
+  <div class="marquee reveal">
+    <div class="marquee__track">
+      <span class="marquee__item">Apple Screen Time API</span>
+      <span class="marquee__item">Family Controls</span>
+      <span class="marquee__item">Device Activity</span>
+      <span class="marquee__item">Managed Settings</span>
+      <span class="marquee__item">On device only</span>
+      <span class="marquee__item">No account required</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== HOW IT WORKS ====================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="label label--focus">How it works</span>
+      <h2>Three steps. That is the whole app.</h2>
+      <p class="lede">No settings maze, no willpower required. You set it up once and then you mostly forget it is there.</p>
+    </div>
+
+    <div class="grid grid--3 steps">
+      <div class="solid-glass step reveal">
+        <div class="step__n">1</div>
+        <h3>Pick the apps that steal your day</h3>
+        <p>Tap the ones you already know about. Instagram, TikTok, YouTube, whatever yours are. Give each a daily limit, or block it outright.</p>
+      </div>
+      <div class="solid-glass step reveal" data-d="1">
+        <div class="step__n">2</div>
+        <h3>Opening one shows the cost, not the feed</h3>
+        <p>When you reach for a blocked app, Offliner shows you what it is about to cost you. Then it asks you to wait fifteen seconds before you can go in.</p>
+      </div>
+      <div class="solid-glass step reveal" data-d="2">
+        <div class="step__n">3</div>
+        <h3>Every clean day builds the streak</h3>
+        <p>Stay under your limits and the day counts. Break one and the day goes blank. After a week or two, the streak is the thing you are protecting, not the phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== THE ACCURACY NUMBER ====================== -->
+<section class="section">
+  <div class="bloom bloom--warm" style="top:-14%; right:-8%" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="glass card--lg center reveal" style="border-radius:var(--r-hero)">
+      <span class="label label--focus">Accuracy</span>
+      <span class="hero-number">1<span class="unit">second</span></span>
+      <p class="lede center mt-m" style="margin-inline:auto">
+        Most screen time apps round to the nearest five or fifteen minutes, then guess at the gaps.
+        Offliner reads directly from Apple's Screen Time system and reports your usage to the second.
+        If the number is going to change how you feel about your day, the number has to be right.
+      </p>
+      <div class="grid grid--3 mt-l" style="text-align:left">
+        <div class="solid-glass stat">
+          <span class="stat__n">Exact</span>
+          <span class="stat__l">Minutes, pickups and attempted opens, not estimates</span>
+        </div>
+        <div class="solid-glass stat">
+          <span class="stat__n">Live</span>
+          <span class="stat__l">Counters tick while you watch, no waiting for a daily report</span>
+        </div>
+        <div class="solid-glass stat">
+          <span class="stat__n">Private</span>
+          <span class="stat__l">Everything is computed on your iPhone and stays there</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== WHAT IS INSIDE ====================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">Inside the app</span>
+      <h2>Everything is one number away.</h2>
+      <p class="lede">Each screen has a single thing it wants you to look at. Nothing is buried, nothing is decorative.</p>
+    </div>
+
+    <div class="grid grid--3">
+      <div class="solid-glass card card--hover reveal">
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3c1.5 3 4.5 4.5 4.5 8a4.5 4.5 0 0 1-9 0c0-1.2.4-2.1 1-3 .3 1 .9 1.6 1.7 1.8C9.6 7.6 10.5 5 12 3z"/><path d="M12 21v-2"/></svg></div>
+        <h3>The streak</h3>
+        <p>Distraction free days, counted from the day you start. It opens at one, not at zero. Days inside a detox always count, because the apps cannot open at all.</p>
+      </div>
+
+      <div class="solid-glass card card--hover reveal" data-d="1">
+        <div class="tile tile--neutral"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Focus Score</h3>
+        <p>One hundred means zero minutes on distracting apps. The first ten minutes cost a point each, so slipping shows up straight away. After that it falls slowly, so a bad morning does not write off the day.</p>
+      </div>
+
+      <div class="solid-glass card card--hover reveal" data-d="2">
+        <div class="tile tile--allowed"><svg class="ico" viewBox="0 0 24 24"><path d="M3 17l5-6 4 4 5-7 4 5"/><path d="M3 21h18"/></svg></div>
+        <h3>Reclaimed</h3>
+        <p>Hours you got back, measured against the honest baseline you set on day one. It only ever goes up, because a total that can fall is discouraging rather than motivating.</p>
+      </div>
+
+      <div class="solid-glass card card--hover reveal">
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div>
+        <h3>Rules</h3>
+        <p>Work hours, bedtime, mornings, weekends. Pick a quick rule in one tap or build your own with days, a time window and a set of apps.</p>
+      </div>
+
+      <div class="solid-glass card card--hover reveal" data-d="1">
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></div>
+        <h3>Focus sessions</h3>
+        <p>Set a length, name the session, start it. A timer or a pomodoro. The apps go quiet until it ends, and it shows on your Lock Screen and Dynamic Island while it runs.</p>
+      </div>
+
+      <div class="solid-glass card card--hover reveal" data-d="2">
+        <div class="tile tile--limited"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19h-2"/><path d="M2 19h20"/></svg></div>
+        <h3>Insights</h3>
+        <p>Day, week and month. Which apps took the time, when your usage peaks, and a plain recommendation you can apply as a rule with one tap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== THE BLOCK SCREEN ====================== -->
+<section class="section">
+  <div class="bloom bloom--cool" style="bottom:-20%; left:-10%" aria-hidden="true"></div>
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="label label--focus">The moment it matters</span>
+      <h2>The screen that changes your mind.</h2>
+      <p class="lede mt-s">
+        Every other blocker shows you a padlock and an Ignore button. Offliner shows you the truth instead.
+      </p>
+      <p class="lede mt-s">
+        You have tried to open this app seven times today. You have already spent forty one minutes in it.
+        Your streak is fourteen days long. Those are your numbers, not a lecture.
+      </p>
+      <p class="lede mt-s">
+        There is no instant unlock anywhere in the app. If you still want in, you wait fifteen live seconds
+        and you get five minutes. Most people close it before the timer runs out.
+      </p>
+      <div class="btn-row mt-m">
+        <a class="link-arrow" href="/why.html">
+          Read why this works
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal" data-d="1">
+      <div class="phone phone--sm">
+        <div class="phone__screen">
+          <div class="phone__island" aria-hidden="true"></div>
+          <div class="phone__placeholder">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <span>Block screen<br>screenshot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== TESTIMONIALS ====================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="label">From the App Store</span>
+      <h2>People who had already given up.</h2>
+    </div>
+
+    <div class="grid grid--3">
+      <figure class="solid-glass quote reveal">
+        <blockquote>Love it. I am constantly motivated to keep my streak by reading and exercising, and I have stopped relying on social media.</blockquote>
+        <figcaption>
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
+          Vivis
+        </figcaption>
+      </figure>
+
+      <figure class="solid-glass quote reveal" data-d="1">
+        <blockquote>This app helped me reset and regulate my dopamine levels. After multiple tries with other subscriptions, this was the one that gave me the best results.</blockquote>
+        <figcaption>
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
+          Fernando
+        </figcaption>
+      </figure>
+
+      <figure class="solid-glass quote reveal" data-d="2">
+        <blockquote data-placeholder>Add a third review here once you have one you like. Keep it short, specific and in the person's own words.</blockquote>
+        <figcaption>
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
+          Your next reviewer
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="section">
+  <div class="bloom bloom--warm" style="top:0; left:50%; transform:translateX(-50%)" aria-hidden="true"></div>
+  <div class="wrap center reveal">
+    <h2>The next two weeks happen either way.</h2>
+    <p class="lede mt-s" style="margin-inline:auto">
+      You can spend them the way you spent the last two, or you can spend them building
+      the thing you keep telling yourself you will get to.
+    </p>
+    <div class="btn-row mt-m">
+      <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.9 2.37-4.3 2.48-4.37-1.35-1.98-3.45-2.25-4.2-2.28-1.79-.18-3.49 1.05-4.4 1.05-.9 0-2.3-1.03-3.79-1-1.95.03-3.75 1.13-4.75 2.87-2.02 3.51-.52 8.7 1.45 11.55.96 1.39 2.11 2.95 3.62 2.9 1.45-.06 2-.94 3.76-.94s2.25.94 3.79.91c1.56-.03 2.55-1.42 3.5-2.82 1.1-1.62 1.56-3.19 1.58-3.27-.03-.02-3.03-1.17-3.06-4.6M14.2 3.87c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.54.77-3.37 1.73-.74.86-1.39 2.23-1.21 3.54 1.28.1 2.59-.65 3.39-1.62"/></svg>
+        Download on the App Store
+      </a>
+    </div>
+    <p class="btn-note">iPhone and iPad. Cancel anytime in the App Store.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F0632B"/><path d="M16 1a15 15 0 0 1 0 30z" fill="#C8391B"/></svg>
+          Offliner
+        </a>
+        <p>For people who already tried Screen Time, deleting the apps, and promising themselves just five more minutes.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.tiktok.com/@offlinerapp" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="-0.323 -3.128 42.684 42.128"><path d="M23.979 25.42V12.632A15.741 15.741 0 0 0 33 15.448v-4.89a9.083 9.083 0 0 1-4.912-2.82C26.016 6.431 24.586 4.358 24.132 2h-4.747l-.01 25.215c-.11 2.824-2.505 5.09-5.44 5.09-1.754-.002-3.398-.822-4.42-2.204-1.794-.913-2.919-2.716-2.92-4.682.003-2.92 2.44-5.285 5.45-5.289.56 0 1.098.09 1.608.245v-4.933C7.202 15.589 2 20.722 2 27.016c0 3.045 1.219 5.816 3.205 7.885A12.115 12.115 0 0 0 12.045 37c6.58 0 11.934-5.195 11.934-11.58"/></svg></a>
+          <a href="https://www.youtube.com/@OfflinerApp" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/why.html">Why Offliner</a></li>
+          <li><a href="/why.html#features">Features</a></li>
+          <li><a href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Download</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/why.html#journal">Journal</a></li>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="/why.html#suggestions">Suggest a feature</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy policy</a></li>
+          <li><a href="/terms.html">Terms of service</a></li>
+          <li><a href="mailto:info@offliner.app">info@offliner.app</a></li>
+          <li><a href="mailto:support@offliner.app">support@offliner.app</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span data-year>2026</span> Offliner. All rights reserved.</span>
+      <span>Built for people who would rather live their life.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Download on the App Store</a>
+</div>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
