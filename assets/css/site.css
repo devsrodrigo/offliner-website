@@ -13,6 +13,48 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   0. Avenir Next: pin exact weight faces
+   Letting the browser match "Avenir Next" by family name plus a numeric
+   font-weight is a guess, and on some systems that guess lands on the
+   original "Avenir" (noticeably rounder and more geometric) instead of
+   Avenir Next, or synthesizes the wrong weight entirely. These four rules
+   pin every weight actually used on the site to the exact named Avenir
+   Next face, same fix as Typo.avenir in the app. Nothing is downloaded:
+   local() only matches a font already installed on the visitor's machine,
+   so this costs nothing and degrades straight to the existing fallback
+   stack on systems that don't have Avenir Next at all.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Avenir Next";
+  src: local("Avenir Next Regular"), local("AvenirNext-Regular"), local("Avenir Next");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: local("Avenir Next Medium"), local("AvenirNext-Medium");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: local("Avenir Next Demi Bold"), local("AvenirNext-DemiBold"), local("Avenir Next DemiBold");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: local("Avenir Next Bold"), local("AvenirNext-Bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
    1. Tokens
    -------------------------------------------------------------------------- */
 
@@ -460,6 +502,7 @@ section { position: relative; }
   justify-content: space-between;
   gap: 24px;
   height: 74px;
+  position: relative;
 }
 
 .brand {
@@ -478,6 +521,11 @@ section { position: relative; }
   display: flex;
   align-items: center;
   gap: 34px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 .nav a {
@@ -1120,6 +1168,14 @@ section { position: relative; }
    25. Responsive
    -------------------------------------------------------------------------- */
 
+@media (max-width: 1040px) {
+  /* Give the centered nav a little more breathing room next to the
+     socials + CTA cluster before the layout switches to the burger. */
+  .nav { gap: 22px; }
+  .header__right { gap: 12px; }
+  .socials { gap: 12px; }
+}
+
 @media (max-width: 980px) {
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer__brand { grid-column: 1 / -1; }
@@ -1127,7 +1183,7 @@ section { position: relative; }
 }
 
 @media (max-width: 860px) {
-  .nav, .header__right .socials, .header__right .btn { display: none; }
+  .nav, .header__right { display: none; }
   .burger { display: flex; }
   .split, .split--narrow { grid-template-columns: 1fr; gap: 40px; }
   .split--media-first > *:first-child,
@@ -1141,7 +1197,13 @@ section { position: relative; }
   :root { --inset: 20px; --pad-card: 20px; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .hero { padding-top: 116px; }
-  .btn-row .btn { width: 100%; }
+  .btn-row .btn,
+  .sticky-cta .btn,
+  .mobile-menu .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
   .phone-trio { gap: 8px; }
   .phone-trio .phone { max-width: 30vw; }
   .acc__body { padding-left: 22px; }

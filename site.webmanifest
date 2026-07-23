@@ -1,0 +1,13 @@
+{
+  "name": "Offliner: Screen Time and App Blocker",
+  "short_name": "Offliner",
+  "description": "The screen time app that measures to the second and blocks the apps eating your day.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0C12",
+  "theme_color": "#0B0C12",
+  "icons": [
+    { "src": "/assets/img/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

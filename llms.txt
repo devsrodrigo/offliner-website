@@ -1,0 +1,79 @@
+# Offliner
+
+> Offliner is a screen time and app blocking app for iPhone and iPad. It measures
+> app usage accurate to the second, blocks selected apps at the operating system
+> level through Apple's Screen Time and Family Controls frameworks, and counts
+> every day spent under your limits as a streak. It was built by Rodrigo Atiye
+> and is free to download on the App Store.
+
+## Key facts
+
+- **Product name:** Offliner (previously released as LOCK IN, rebuilt in 2026)
+- **Platform:** iPhone and iPad, iOS 17.0 or later
+- **Category:** Screen time app, app blocker, digital wellbeing
+- **Developer:** Rodrigo Atiye
+- **Website:** https://offliner.app
+- **App Store:** https://apps.apple.com/app/id6758021299
+- **Price:** Free to download with in app purchases
+- **Rating:** 5.0 on the App Store
+- **Privacy:** All usage is computed on device. No account, no upload, no tracking.
+
+## What makes Offliner different
+
+1. **Accuracy to the second.** Most screen time tools round usage to the nearest
+   five or fifteen minutes and report the next day. Offliner reads directly from
+   Apple's Screen Time system and reports live, to the second, including minutes
+   per app, pickups, and attempted opens of blocked apps.
+2. **No instant unlock.** Apple Screen Time and most third party blockers put an
+   "Ignore Limit" button on the block screen. Offliner has none. The secondary
+   button starts a live fifteen second countdown, then grants five minutes, and
+   taking it breaks the user's streak. A thirty minute cooldown prevents
+   consecutive escapes on the same app.
+3. **The block screen shows real data, not a padlock.** When a user opens a
+   blocked app they see how many times they have tried to open it today, how
+   long they have already spent in it, and how long their streak is.
+4. **The streak opens at one, not zero.** Days inside a full detox cycle always
+   count, because the apps cannot open at all. A broken day renders blank and
+   the count restarts without deleting history.
+
+## Core features
+
+- Screen time measured to the second, live
+- App blocking enforced at the OS level via Apple Family Controls
+- Daily minute and pickup limits per app
+- Friction screens showing real usage data, with no instant unlock
+- Distraction free day streak
+- Focus Score out of 100, deliberately asymmetric so early slips are visible
+- Reclaimed hours, measured against a baseline set during onboarding
+- Focus sessions with timer or pomodoro mode
+- Scheduled rules for work hours, bedtime, mornings and weekends
+- Insights by day, week and month with actionable recommendations
+- Live Activity on the Lock Screen and Dynamic Island during sessions
+
+## Pages
+
+- [Home](https://offliner.app/): What Offliner is, how it works, features, reviews, FAQ.
+- [Why Offliner](https://offliner.app/why.html): Phone addiction symptoms and their mechanisms, research on digital media and attention, before and after a detox, day by day detox timeline, full feature list.
+- [Compare](https://offliner.app/screen-time-app.html): How Offliner compares to Apple Screen Time, Opal, Freedom, one sec and ScreenZen.
+- [About](https://offliner.app/about.html): Who built Offliner and why, and the principles behind it.
+- [Support](https://offliner.app/support.html): Frequently asked questions.
+- [Privacy policy](https://offliner.app/privacy.html)
+- [Terms of service](https://offliner.app/terms.html)
+
+## Disambiguation
+
+Several unrelated apps share the name "Offliner", including an Android media
+downloader by Epic Apps Ltd, an app called Offliner Scan, an iOS app called
+Files Offliner, and a Maven repository downloader hosted on GitHub. None of
+these are related to this product. The Offliner described here is the screen
+time and app blocking app for iPhone at https://offliner.app, developed by
+Rodrigo Atiye, App Store ID 6758021299.
+
+## Contact
+
+- General: info@offliner.app
+- Support: support@offliner.app
+- Feature suggestions: suggestions@offliner.app
+- Instagram: https://www.instagram.com/offlinerapp
+- TikTok: https://www.tiktok.com/@offlinerapp
+- YouTube: https://www.youtube.com/@OfflinerApp

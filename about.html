@@ -3,21 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Offliner: Why I Built It</title>
-<meta name="description" content="Offliner was built by one person who could not put his phone down and had already tried everything else. This is the story of what failed and what finally worked.">
+<title>About Offliner: Who Made It and Why | Offliner</title>
+<meta name="description" content="Offliner was built by Rodrigo Atiye, who could not put his phone down and had already tried Apple Screen Time, deleting apps, greyscale and every other blocker. The story of what failed and what worked.">
 <link rel="canonical" href="https://offliner.app/about.html">
 <meta name="theme-color" content="#0B0C12">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Rodrigo Atiye">
+<meta name="apple-itunes-app" content="app-id=6758021299">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Offliner">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://offliner.app/about.html">
-<meta property="og:title" content="About Offliner: Why I Built It">
+<meta property="og:title" content="About Offliner: Who Made It and Why">
 <meta property="og:description" content="Built by one person who could not put his phone down and had already tried everything else.">
 <meta property="og:image" content="https://offliner.app/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Offliner: Who Made It and Why">
+<meta name="twitter:description" content="Built by one person who could not put his phone down and had already tried everything else.">
+<meta name="twitter:image" content="https://offliner.app/assets/img/og-image.png">
 
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/css/site.css">
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://offliner.app/about.html#webpage",
+    "url": "https://offliner.app/about.html",
+    "name": "About Offliner: Who Made It and Why",
+    "isPartOf": { "@id": "https://offliner.app/#website" },
+    "about": { "@id": "https://offliner.app/#organization" },
+    "inLanguage": "en-US"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://offliner.app/about.html#rodrigo",
+    "name": "Rodrigo Atiye",
+    "alternateName": "Rodrigo Atiye Abisad",
+    "url": "https://offliner.app/about.html",
+    "image": "https://offliner.app/assets/img/rodrigo.jpg",
+    "jobTitle": "Founder and developer",
+    "description": "Rodrigo Atiye is the founder and sole developer of Offliner, a screen time and app blocking app for iPhone.",
+    "worksFor": { "@id": "https://offliner.app/#organization" },
+    "sameAs": [
+      "https://apps.apple.com/developer/rodrigo-atiye-abisad/id1870348201",
+      "https://www.instagram.com/offlinerapp",
+      "https://www.tiktok.com/@offlinerapp",
+      "https://www.youtube.com/@OfflinerApp"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://offliner.app/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://offliner.app/about.html" }
+    ]
+  }
+]
+</script>
 </head>
 <body>
 
@@ -27,7 +79,15 @@
 <header class="header">
   <div class="wrap header__inner">
     <a class="brand" href="/" aria-label="Offliner home">
-      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F0632B"/><path d="M16 1a15 15 0 0 1 0 30z" fill="#C8391B"/></svg>
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F0632B"/>
+            <stop offset="100%" stop-color="#C8391B"/>
+          </linearGradient>
+        </defs>
+        <circle cx="16" cy="16" r="15" fill="url(#logoGrad)"/>
+      </svg>
       Offliner
     </a>
 
@@ -256,7 +316,7 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <a class="brand" href="/">
-          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#F0632B"/><path d="M16 1a15 15 0 0 1 0 30z" fill="#C8391B"/></svg>
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="url(#logoGrad)"/></svg>
           Offliner
         </a>
         <p>For people who already tried Screen Time, deleting the apps, and promising themselves just five more minutes.</p>
@@ -272,6 +332,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/why.html">Why Offliner</a></li>
+          <li><a href="/screen-time-app.html">Compare screen time apps</a></li>
           <li><a href="/why.html#features">Features</a></li>
           <li><a href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Download</a></li>
         </ul>

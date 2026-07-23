@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+# AI crawlers are explicitly welcome. Being quoted in an AI answer is how a
+# large share of discovery happens now, and there is nothing here worth hiding.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://offliner.app/sitemap.xml
