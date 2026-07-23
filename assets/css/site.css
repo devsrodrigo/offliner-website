@@ -19,36 +19,44 @@
    original "Avenir" (noticeably rounder and more geometric) instead of
    Avenir Next, or synthesizes the wrong weight entirely. These four rules
    pin every weight actually used on the site to the exact named Avenir
-   Next face, same fix as Typo.avenir in the app. Nothing is downloaded:
-   local() only matches a font already installed on the visitor's machine,
-   so this costs nothing and degrades straight to the existing fallback
-   stack on systems that don't have Avenir Next at all.
+   Next face, same fix as Typo.avenir in the app. Each rule tries local()
+   first, so a visitor who already has Avenir Next installed (most Macs) pays
+   nothing. The url() sources self-host the real Avenir Next so it ALSO renders
+   for everyone who does not have it locally: Windows, Android, and locked down
+   or managed browsers that block local font matching. Without a url() source
+   those visitors silently fell down the fallback stack to Avenir or Helvetica,
+   which is the "wrong font" problem this fixes. Drop the four .woff2 files into
+   /assets/fonts/ with the names below and every visitor gets Avenir Next.
    -------------------------------------------------------------------------- */
 
 @font-face {
   font-family: "Avenir Next";
-  src: local("Avenir Next Regular"), local("AvenirNext-Regular"), local("Avenir Next");
+  src: local("Avenir Next Regular"), local("AvenirNext-Regular"), local("Avenir Next"),
+       url("/assets/fonts/AvenirNext-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next";
-  src: local("Avenir Next Medium"), local("AvenirNext-Medium");
+  src: local("Avenir Next Medium"), local("AvenirNext-Medium"),
+       url("/assets/fonts/AvenirNext-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next";
-  src: local("Avenir Next Demi Bold"), local("AvenirNext-DemiBold"), local("Avenir Next DemiBold");
+  src: local("Avenir Next Demi Bold"), local("AvenirNext-DemiBold"), local("Avenir Next DemiBold"),
+       url("/assets/fonts/AvenirNext-DemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next";
-  src: local("Avenir Next Bold"), local("AvenirNext-Bold");
+  src: local("Avenir Next Bold"), local("AvenirNext-Bold"),
+       url("/assets/fonts/AvenirNext-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -463,6 +471,12 @@ section { position: relative; }
   color: var(--text-faint);
   letter-spacing: 0.005em;
 }
+/* Larger, brighter note that matches the hero standfirst hierarchy. */
+.btn-note--lede {
+  font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+  color: var(--text-mid);
+  letter-spacing: -0.008em;
+}
 
 .link-arrow {
   display: inline-flex;
@@ -623,7 +637,7 @@ section { position: relative; }
 }
 
 .hero h1 { color: var(--text-hi); margin-bottom: 24px; }
-.hero .lede { margin-inline: auto; font-size: clamp(1.05rem, 1.7vw, 1.22rem); }
+.hero .lede { margin-inline: auto; font-size: clamp(1.05rem, 1.7vw, 1.22rem); color: var(--text-mid); }
 
 /* Rating pill. Social proof sits above the fold, next to the claim. */
 .pill {
@@ -643,7 +657,7 @@ section { position: relative; }
 .pill .stars { display: inline-flex; gap: 1.5px; color: var(--limited); }
 .pill .stars svg { width: 12px; height: 12px; fill: currentColor; }
 
-.hero .btn-row { margin-top: 34px; }
+.hero .btn-row { margin-top: 34px; justify-content: center; }
 
 /* --------------------------------------------------------------------------
    11. iPhone frame
