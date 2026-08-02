@@ -1,10 +1,11 @@
 # Offliner
 
-> Offliner is a screen time and app blocking app for iPhone and iPad. It measures
-> app usage accurate to the second, blocks selected apps at the operating system
-> level through Apple's Screen Time and Family Controls frameworks, and counts
-> every day spent under your limits as a streak. It was built by Rodrigo Atiye
-> and is free to download on the App Store.
+> Offliner is a screen time and app blocking app for iPhone and iPad. You choose
+> which apps to detox from and which to limit, Offliner enforces it at the
+> operating system level through Apple's Screen Time and Family Controls
+> frameworks, and every day you stay under your own limits counts towards a
+> streak. Time spent off those apps also earns XP and levels. It was built by
+> Rodrigo Atiye and is free to download on the App Store.
 
 ## Key facts
 
@@ -20,35 +21,38 @@
 
 ## What makes Offliner different
 
-1. **Accuracy to the second.** Most screen time tools round usage to the nearest
-   five or fifteen minutes and report the next day. Offliner reads directly from
-   Apple's Screen Time system and reports live, to the second, including minutes
-   per app, pickups, and attempted opens of blocked apps.
-2. **No instant unlock.** Apple Screen Time and most third party blockers put an
-   "Ignore Limit" button on the block screen. Offliner has none. The secondary
-   button starts a live fifteen second countdown, then grants five minutes, and
-   taking it breaks the user's streak. A thirty minute cooldown prevents
-   consecutive escapes on the same app.
-3. **The block screen shows real data, not a padlock.** When a user opens a
-   blocked app they see how many times they have tried to open it today, how
-   long they have already spent in it, and how long their streak is.
-4. **The streak opens at one, not zero.** Days inside a full detox cycle always
-   count, because the apps cannot open at all. A broken day renders blank and
-   the count restarts without deleting history.
+1. **No instant unlock.** Apple Screen Time and most third party blockers put an
+   "Ignore Limit" button on the block screen, which takes about a second to tap.
+   Offliner has none. Any leeway has to be configured in advance as part of the
+   rule, not decided in the moment.
+2. **Lock Mode.** On by default. While it is on, a rule cannot be edited or
+   deleted inside its active window and an app cannot be pulled out of a detox
+   early. Turning Lock Mode off only takes effect the following day, so the
+   decision is never made mid craving.
+3. **The block screen offers somewhere to go.** Instead of a padlock, it shows
+   what the app has cost today and offers four in-app alternatives: journal,
+   habits, books, and Echo, the built in guide.
+4. **Detox graduates into limits.** An app can be fully detoxed for up to 30
+   days on a rolling basis. When the detox ends the app moves to a daily limit
+   rather than returning unrestricted.
+5. **XP is only ever earned by being offline.** One point per minute spent
+   outside distracting apps, 1,440 in a fully offline day, multiplied by the
+   streak. Nothing pays for using Offliner itself.
 
 ## Core features
 
-- Screen time measured to the second, live
 - App blocking enforced at the OS level via Apple Family Controls
+- Detox for up to 30 days, rolling, graduating into daily limits
 - Daily minute and pickup limits per app
-- Friction screens showing real usage data, with no instant unlock
-- Distraction free day streak
-- Focus Score out of 100, deliberately asymmetric so early slips are visible
-- Reclaimed hours, measured against a baseline set during onboarding
+- Lock Mode, preventing in-the-moment loosening of rules
+- Block screen with four in-app alternatives and no instant unlock
+- Distraction free day streak, with an XP multiplier that grows with it
+- Levels and XP earned only from time spent offline, rewards every 5 levels
 - Focus sessions with timer or pomodoro mode
 - Scheduled rules for work hours, bedtime, mornings and weekends
-- Insights by day, week and month with actionable recommendations
-- Live Activity on the Lock Screen and Dynamic Island during sessions
+- Insights by day, week and month with one tap recommendations
+- Journal, habits and books for the time freed up
+- Echo, the built in guide for cravings and withdrawal
 
 ## Pages
 
