@@ -769,6 +769,21 @@ section { position: relative; }
 }
 .trust svg { width: 14px; height: 14px; color: var(--allowed); }
 
+/* Split hero: headline/CTA on the left, phone mock on the right. */
+.hero--split .wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(36px, 6vw, 80px);
+  align-items: center;
+  text-align: left;
+}
+.hero--split .pill,
+.hero--split h1,
+.hero--split .lede { margin-inline: 0; }
+.hero--split h1 { max-width: 18ch; }
+.hero--split .btn-row { justify-content: flex-start; }
+.hero--split .hero__media { display: flex; justify-content: center; }
+
 /* --------------------------------------------------------------------------
    11. iPhone frame
    A real screenshot can be dropped in at any time and it will fill correctly.
@@ -1636,6 +1651,11 @@ section { position: relative; }
   .split--media-first > *:last-child { order: 0; }
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sticky-cta { display: block; }
+  .hero--split .wrap { grid-template-columns: 1fr; text-align: center; }
+  .hero--split .pill,
+  .hero--split h1,
+  .hero--split .lede { margin-inline: auto; }
+  .hero--split .btn-row { justify-content: center; }
 }
 
 @media (max-width: 620px) {
