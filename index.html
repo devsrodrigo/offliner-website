@@ -6,7 +6,7 @@
 <title>Offliner: Screen Time App and App Blocker for iPhone</title>
 <meta name="description" content="Become allergic to your phone. Offliner locks the apps eating your day, counts every clean day as a streak, and pays you XP for every minute you stay offline.">
 <link rel="canonical" href="https://offliner.app/">
-<meta name="theme-color" content="#0C0E16">
+<meta name="theme-color" content="#000000">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Rodrigo Atiye">
 <meta name="apple-itunes-app" content="app-id=6758021299">
@@ -30,8 +30,9 @@
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/css/site.css?v=3" as="style">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="preload" href="/assets/css/site.css?v=4" as="style">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="preload" as="image" href="/assets/img/hero-device.webp" type="image/webp" fetchpriority="high">
 
 <script type="application/ld+json">
 [
@@ -149,7 +150,7 @@
         "name": "What is the Offliner app?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Offliner is a screen time and app blocking app for iPhone and iPad. You choose which apps to detox from and which to limit, Offliner enforces it, and every day you stay under your limits counts towards a streak. It was built by Rodrigo Atiye and is available on the App Store."
+          "text": "Offliner is a screen time and app blocking app for iPhone and iPad. You choose which apps to detox from and which to limit, Offliner enforces it, and every day you stay under your limits counts towards a streak."
         }
       },
       {
@@ -157,7 +158,7 @@
         "name": "How is Offliner different from Apple Screen Time?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Apple Screen Time puts an Ignore Limit button on every block screen, which takes about a second to tap. Offliner has no instant unlock. On top of that it gives you a streak to protect, XP for every minute you stay offline, and somewhere to go when you close the app you were about to open."
+          "text": "Apple Screen Time puts an Ignore Limit button on every block screen, which takes about a second and a half to tap. Offliner has no instant unlock anywhere in the app, and Lock Mode stops you loosening a rule in the moment you crave. It also does the part Screen Time does not attempt: blocking an app leaves a gap, so the block screen hands you four things already inside Offliner, a library of books, a journal, your habits and Echo, so you replace the scroll instead of just losing it. And staying off pays. Every offline minute earns a point, clean days build a streak, the streak multiplies what you earn, and there are fifty levels and six ranks between you and the last one, which is called Offliner. Nothing pays you for opening the app."
         }
       },
       {
@@ -252,137 +253,121 @@
 
 <main>
 
-<!-- ====================== HERO ====================== -->
+<!-- ====================== 1 · HERO ====================== -->
 <section class="hero hero--split">
   <div class="wrap">
     <div class="hero__content">
-    <span class="pill reveal">
-      <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
-      Rated 5.0 on the App Store
-    </span>
+      <h1 class="reveal">Become <span class="hot">allergic</span> to your phone.</h1>
 
-    <h1 class="reveal" data-d="1">Become <span class="grad">allergic to your phone</span> with Offliner</h1>
+      <p class="lede reveal" data-d="1">
+        Offliner locks the apps eating your day. No ignore button, no way to talk yourself
+        back in, and a streak you will not want to be the one to break.
+      </p>
 
-    <div class="btn-row reveal" data-d="3">
-      <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.9 2.37-4.3 2.48-4.37-1.35-1.98-3.45-2.25-4.2-2.28-1.79-.18-3.49 1.05-4.4 1.05-.9 0-2.3-1.03-3.79-1-1.95.03-3.75 1.13-4.75 2.87-2.02 3.51-.52 8.7 1.45 11.55.96 1.39 2.11 2.95 3.62 2.9 1.45-.06 2-.94 3.76-.94s2.25.94 3.79.91c1.56-.03 2.55-1.42 3.5-2.82 1.1-1.62 1.56-3.19 1.58-3.27-.03-.02-3.03-1.17-3.06-4.6M14.2 3.87c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.54.77-3.37 1.73-.74.86-1.39 2.23-1.21 3.54 1.28.1 2.59-.65 3.39-1.62"/></svg>
-        Download on iPhone
-      </a>
-      <a class="btn btn--glass btn--lg" href="#how">See how it works</a>
-    </div>
-    </div>
-
-    <div class="hero__media reveal" data-d="4">
-      <div class="phone phone--lit">
-        <div class="phone__screen">
-          <div class="phone__island" aria-hidden="true"></div>
-          <!-- Real screenshot? Replace this whole .ui block with:
-               <img src="/assets/img/screens/home.png" alt="Offliner home screen showing a 14 day streak" width="1290" height="2796"> -->
-          <div class="ui" role="img" aria-label="The Offliner home screen: a 14 day distraction free streak, a level 12 progress bar, and a list of locked and limited apps.">
-            <div class="ui__status">
-              <span>9:41</span>
-              <i aria-hidden="true"><span class="ui__batt"></span></i>
-            </div>
-            <div class="ui__title">Home</div>
-
-            <div class="ui__card ui__card--hero">
-              <div class="ui__eyebrow">Current streak</div>
-              <div class="ui__flame" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2c1.8 3.6 5.2 5.2 5.2 9.2A5.2 5.2 0 0 1 6.8 11.2c0-1.4.5-2.5 1.2-3.5.3 1.2 1 1.9 2 2.2C8.9 7 10 4 12 2z"/></svg>
-              </div>
-              <div class="ui__hero">14</div>
-              <div class="ui__herolabel">distraction-free days</div>
-              <div class="ui__week" aria-hidden="true">
-                <span class="ui__day ui__day--on">M<b></b></span>
-                <span class="ui__day ui__day--on">T<b></b></span>
-                <span class="ui__day ui__day--on">W<b></b></span>
-                <span class="ui__day ui__day--on">T<b></b></span>
-                <span class="ui__day ui__day--on">F<b></b></span>
-                <span class="ui__day ui__day--on">S<b></b></span>
-                <span class="ui__day ui__day--on ui__day--now">S<b></b></span>
-              </div>
-            </div>
-
-            <div class="ui__card">
-              <div class="ui__row">
-                <span class="ui__rowtitle">Level 12 · Deliberate</span>
-                <span class="ui__rowmeta ui__rowmeta--focus">1.28&times;</span>
-              </div>
-              <div class="ui__bar"><i style="width:68%"></i></div>
-              <div class="ui__note">Earning 1 XP a minute while you stay off</div>
-            </div>
-
-            <div class="ui__card">
-              <div class="ui__app">
-                <span class="ui__chip ui__chip--a" aria-hidden="true">I</span>
-                <span class="ui__appmeta"><span class="ui__appname">Instagram</span><span class="ui__appsub">Day 6 of 14</span></span>
-                <span class="ui__state ui__state--detox">Detox</span>
-              </div>
-              <div class="ui__app">
-                <span class="ui__chip ui__chip--b" aria-hidden="true">T</span>
-                <span class="ui__appmeta"><span class="ui__appname">TikTok</span><span class="ui__appsub">Locked until 18:00</span></span>
-                <span class="ui__state ui__state--locked">Locked</span>
-              </div>
-              <div class="ui__app">
-                <span class="ui__chip ui__chip--c" aria-hidden="true">Y</span>
-                <span class="ui__appmeta"><span class="ui__appname">YouTube</span><span class="ui__appsub">12m left of 30m</span></span>
-                <span class="ui__state ui__state--limited">Limited</span>
-              </div>
-            </div>
-
-            <div class="ui__tabs" aria-hidden="true">
-              <span class="ui__tab ui__tab--on"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Home</span>
-              <span class="ui__tab"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12h6"/></svg>Apps</span>
-              <span class="ui__tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>Focus</span>
-              <span class="ui__tab"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M2 19h20"/></svg>Insights</span>
-            </div>
-          </div>
-        </div>
+      <div class="btn-row reveal" data-d="2">
+        <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.9 2.37-4.3 2.48-4.37-1.35-1.98-3.45-2.25-4.2-2.28-1.79-.18-3.49 1.05-4.4 1.05-.9 0-2.3-1.03-3.79-1-1.95.03-3.75 1.13-4.75 2.87-2.02 3.51-.52 8.7 1.45 11.55.96 1.39 2.11 2.95 3.62 2.9 1.45-.06 2-.94 3.76-.94s2.25.94 3.79.91c1.56-.03 2.55-1.42 3.5-2.82 1.1-1.62 1.56-3.19 1.58-3.27-.03-.02-3.03-1.17-3.06-4.6M14.2 3.87c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.54.77-3.37 1.73-.74.86-1.39 2.23-1.21 3.54 1.28.1 2.59-.65 3.39-1.62"/></svg>
+          Download on iPhone
+        </a>
+        <a class="btn btn--glass btn--lg" href="#how">See how it works</a>
       </div>
+
+      <p class="hero__note reveal" data-d="3">iPhone and iPad. <b>No account.</b> Nothing leaves your device.</p>
+    </div>
+
+    <div class="hero__media">
+      <picture>
+        <source srcset="/assets/img/hero-device.webp" type="image/webp">
+        <img class="hero__shot" src="/assets/img/hero-device.jpg" width="1120" height="1553"
+             fetchpriority="high" decoding="async"
+             alt="The Offliner home screen on an iPhone: a 32 day distraction free streak, level 50 at 95 per cent, and shortcuts to the journal, books, habits and Echo.">
+      </picture>
     </div>
   </div>
+</section>
+
+<!-- ====================== 1b · WHO BUILT IT ====================== -->
+<section class="creds" aria-labelledby="creds-title">
+  <div class="wrap">
+    <div class="creds__head reveal">
+      <h2 id="creds-title">Built by an ex-addict of every app on this list.</h2>
+      <p>No press logos and no borrowed credibility. Just the apps that had to go first.</p>
+    </div>
+  </div>
+
+  <div class="marquee reveal" data-d="1" aria-hidden="true">
+    <div class="marquee__track">
+      <!-- Pass 1 -->
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span class="ex__name">Instagram</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="-0.323 -3.128 42.684 42.128"><path d="M23.979 25.42V12.632A15.741 15.741 0 0 0 33 15.448v-4.89a9.083 9.083 0 0 1-4.912-2.82C26.016 6.431 24.586 4.358 24.132 2h-4.747l-.01 25.215c-.11 2.824-2.505 5.09-5.44 5.09-1.754-.002-3.398-.822-4.42-2.204-1.794-.913-2.919-2.716-2.92-4.682.003-2.92 2.44-5.285 5.45-5.289.56 0 1.098.09 1.608.245v-4.933C7.202 15.589 2 20.722 2 27.016c0 3.045 1.219 5.816 3.205 7.885A12.115 12.115 0 0 0 12.045 37c6.58 0 11.934-5.195 11.934-11.58"/></svg><span class="ex__name">TikTok</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="ex__name">YouTube</span></span>
+      <span class="ex ex--mark"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12c-.689 0-1.25.562-1.25 1.25 0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.56-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg><span class="ex__name">Reddit</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span class="ex__name">Facebook</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg><span class="ex__name">Twitch</span></span>
+      <!-- Grokipedia: uncomment the item below once the entry is actually live.
+           It is left out on purpose so the strip never claims something that
+           has not happened yet. Everything else here is true today.
+      <span class="ex"><span class="ex__tag">on</span><span class="ex__name">Grokipedia</span></span>
+      -->
+
+      <!-- Pass 2, identical, so the loop is seamless -->
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span class="ex__name">Instagram</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="-0.323 -3.128 42.684 42.128"><path d="M23.979 25.42V12.632A15.741 15.741 0 0 0 33 15.448v-4.89a9.083 9.083 0 0 1-4.912-2.82C26.016 6.431 24.586 4.358 24.132 2h-4.747l-.01 25.215c-.11 2.824-2.505 5.09-5.44 5.09-1.754-.002-3.398-.822-4.42-2.204-1.794-.913-2.919-2.716-2.92-4.682.003-2.92 2.44-5.285 5.45-5.289.56 0 1.098.09 1.608.245v-4.933C7.202 15.589 2 20.722 2 27.016c0 3.045 1.219 5.816 3.205 7.885A12.115 12.115 0 0 0 12.045 37c6.58 0 11.934-5.195 11.934-11.58"/></svg><span class="ex__name">TikTok</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="ex__name">YouTube</span></span>
+      <span class="ex ex--mark"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12c-.689 0-1.25.562-1.25 1.25 0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.56-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg><span class="ex__name">Reddit</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span class="ex__name">Facebook</span></span>
+      <span class="ex"><span class="ex__tag">ex-</span><svg class="ex__logo" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg><span class="ex__name">Twitch</span></span>
+    </div>
+  </div>
+
+  <p class="sr-only">Offliner was built by Rodrigo Atiye, a former heavy user of Instagram, TikTok, YouTube, X, Reddit, Facebook and Twitch.</p>
 </section>
 
 <hr class="rule">
 
-<!-- ====================== HOW IT WORKS ====================== -->
+<!-- ====================== 2 · HOW IT WORKS ====================== -->
 <section class="section" id="how">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow"><i></i>How it works</span>
-      <h2>Three things, and then you get out of your own way.</h2>
+      <h2>How does it work?</h2>
     </div>
 
-    <div class="grid grid--3 steps">
-      <div class="solid-glass step card--hover reveal">
-        <div class="step__n">1</div>
-        <h3>Pick what is taking your time</h3>
-        <p>Detox from an app completely for up to 30 days, or leave it open with a daily limit you set yourself. Your limits, your caliber. Not somebody else's idea of what you should manage.</p>
+    <div class="grid grid--4 steps">
+      <div class="step reveal">
+        <div class="step__n">01</div>
+        <h3>Pick the apps</h3>
+        <p>Select the apps you want to block.</p>
       </div>
-      <div class="solid-glass step card--hover reveal" data-d="1">
-        <div class="step__n">2</div>
-        <h3>Lock Mode keeps you honest</h3>
-        <p>It is on by default. While it is on you cannot quietly loosen your own rules the second you crave. Turn it off and it only takes effect tomorrow, when you are calm again.</p>
+      <div class="step reveal" data-d="1">
+        <div class="step__n">02</div>
+        <h3>Set the detox</h3>
+        <p>Select how long you want to detox from these apps. They will be completely blocked in this period.</p>
       </div>
-      <div class="solid-glass step card--hover reveal" data-d="2">
-        <div class="step__n">3</div>
-        <h3>Every clean day builds the streak</h3>
-        <p>Stay under your limits and the day counts. Your streak also raises your XP multiplier, so the longer you hold it, the more every offline minute is worth to you.</p>
+      <div class="step reveal" data-d="2">
+        <div class="step__n">03</div>
+        <h3>Set the daily limit</h3>
+        <p>Select the daily limit allowed for the apps once you finish the detox.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step__n">04</div>
+        <h3>Hold the line</h3>
+        <p>Keep your usage under your set limit to keep your streak (Lock Mode makes this easy). Earn rewards and become an Offliner.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================== THE BLOCK SCREEN ====================== -->
+<!-- ====================== 3 · THE BLOCK SCREEN ====================== -->
 <section class="section">
   <div class="bloom bloom--warm" style="top:-10%; right:-14%" aria-hidden="true"></div>
   <div class="wrap split split--narrow">
     <div class="reveal">
-      <span class="eyebrow"><i></i>The moment it matters</span>
-      <h2>The screen you get when you reach for it anyway.</h2>
+      <h2>What will happen if I open a blocked app?</h2>
       <p class="lede mt-s">
-        Every other blocker hands you a padlock and an Ignore button, which takes about a
-        second to tap. Offliner does something else with that second.
+        There is no ignore button available, so you will not be able to escape when you feel
+        like it. It may feel hard, but that is your brain recalibrating to its natural levels.
       </p>
 
       <ul class="ticks">
@@ -434,13 +419,11 @@
 
 <hr class="rule">
 
-<!-- ====================== WHAT IS INSIDE ====================== -->
+<!-- ====================== 4 · WHAT YOU GET FOR STAYING OFF ====================== -->
 <section class="section" id="inside">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--neutral"><i></i>Inside the app</span>
-      <h2>Built so that staying off is the thing that pays.</h2>
-      <p class="lede">Nothing in Offliner rewards you for using Offliner. It only ever rewards you for the time you did not spend scrolling.</p>
+      <h2>Earn rewards for staying offline.</h2>
     </div>
 
     <div class="bento">
@@ -451,7 +434,7 @@
       </div>
 
       <div class="solid-glass card card--hover bento--wide reveal" data-d="1">
-        <div class="tile tile--neutral"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div>
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div>
         <h3>Detox, then limits</h3>
         <p>Add an app to a detox and it is gone completely, for anywhere up to 30 days. You can add more apps to a running detox at any time. When it ends the app graduates to a daily limit instead of a block, so you get it back on your terms rather than all at once.</p>
       </div>
@@ -463,13 +446,13 @@
       </div>
 
       <div class="solid-glass card card--hover reveal" data-d="1">
-        <div class="tile tile--limited"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19h-2"/><path d="M2 19h20"/></svg></div>
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19h-2"/><path d="M2 19h20"/></svg></div>
         <h3>Insights that suggest</h3>
         <p>It notices your pattern and offers you the fix. "10pm is when you reach for TikTok the most. Want a night schedule?" One tap and it is a rule.</p>
       </div>
 
       <div class="solid-glass card card--hover reveal" data-d="2">
-        <div class="tile tile--allowed"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 1 1-3.2-6.4"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
+        <div class="tile"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 1 1-3.2-6.4"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
         <h3>Echo, the journal, the books</h3>
         <p>Echo is there at 3am when the craving is. The journal is where you work out what set it off. The books are what you read instead.</p>
       </div>
@@ -477,39 +460,13 @@
   </div>
 </section>
 
-<!-- ====================== THE ONE NUMBER ====================== -->
-<section class="section">
-  <div class="bloom bloom--cool" style="bottom:-24%; left:-12%" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="glass card--lg center reveal" style="border-radius:var(--r-hero)">
-      <span class="eyebrow"><i></i>The maths</span>
-      <h2 style="max-width:22ch;margin-inline:auto">A day is 1,440 minutes. You get to decide who they belong to.</h2>
-      <div class="grid grid--3 mt-l">
-        <div class="solid-glass stat">
-          <span class="stat__n"><em>1,440</em></span>
-          <span class="stat__l">XP in a completely offline day, before your streak multiplier</span>
-        </div>
-        <div class="solid-glass stat">
-          <span class="stat__n"><em>30</em></span>
-          <span class="stat__l">Days you can detox an app for, added to on a rolling basis</span>
-        </div>
-        <div class="solid-glass stat">
-          <span class="stat__n"><em>0</em></span>
-          <span class="stat__l">One tap ways to unlock an app you already locked</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <hr class="rule">
 
-<!-- ====================== TESTIMONIALS ====================== -->
+<!-- ====================== 5 · TESTIMONIALS ====================== -->
 <section class="section">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow eyebrow--neutral"><i></i>From the App Store</span>
-      <h2>People who had already given up.</h2>
+      <h2>Words from our graduated Offliners.</h2>
     </div>
 
     <div class="grid grid--2">
@@ -534,12 +491,11 @@
 
 <hr class="rule">
 
-<!-- ====================== FAQ ====================== -->
+<!-- ====================== 6 · FAQ ====================== -->
 <section class="section" id="faq">
-  <div class="wrap" style="max-width:820px">
+  <div class="wrap" style="max-width:840px">
     <div class="section-head center reveal">
-      <span class="eyebrow eyebrow--neutral"><i></i>Common questions</span>
-      <h2>What Offliner is, in plain terms.</h2>
+      <h2>What is Offliner?</h2>
     </div>
 
     <div class="acc reveal">
@@ -547,7 +503,7 @@
         <summary>What is the Offliner app?
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <div class="acc__body">
-          <p>Offliner is a screen time and app blocking app for iPhone and iPad. You choose which apps to detox from and which to limit, Offliner enforces it, and every day you stay under your limits counts towards a streak. It was built by Rodrigo Atiye and is available on the App Store.</p>
+          <p>Offliner is a screen time and app blocking app for iPhone and iPad. You choose which apps to detox from and which to limit, Offliner enforces it, and every day you stay under your limits counts towards a streak.</p>
         </div>
       </details>
 
@@ -555,7 +511,9 @@
         <summary>How is it different from Apple Screen Time?
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <div class="acc__body">
-          <p>Screen Time puts an "Ignore Limit" button on every block screen, and that takes about a second to tap. Offliner has no instant unlock. On top of that you get a streak worth protecting, XP for every minute you stay offline, and somewhere to go the moment you close the app you were about to open.</p>
+          <p>Screen Time puts an "Ignore Limit" button on every block screen. It takes about a second and a half to tap, and once you have tapped it once, you will tap it every time. Offliner has no instant unlock anywhere in the app, and Lock Mode means you cannot quietly loosen a rule in the moment you crave. Turn it off and the change only lands tomorrow, when you are calm again.</p>
+          <p>Then it does the part Screen Time does not attempt at all. Blocking an app leaves a gap, and a gap with nothing in it sends you to the next app on the home screen. So the block screen hands you four things that are already inside Offliner: a library of books to read, a journal to work out what set the craving off, your habits to log, and Echo, which is there at 3am when the craving is. You replace the scroll rather than just losing it.</p>
+          <p>And staying off is the thing that pays. Every minute you are not in a distracting app earns you a point, clean days build a streak, the streak multiplies everything you earn, and there are fifty levels and six ranks between you and the last one, which is called Offliner. Nothing in the app pays you for opening the app. Screen Time gives you a chart at the end of the week. This gives you something to lose.</p>
         </div>
       </details>
 
@@ -586,7 +544,7 @@
   </div>
 </section>
 
-<!-- ====================== FINAL CTA ====================== -->
+<!-- ====================== 7 · FINAL CTA ====================== -->
 <section class="section">
   <div class="bloom bloom--warm" style="top:-10%; left:50%; transform:translateX(-50%)" aria-hidden="true"></div>
   <div class="wrap center reveal">
@@ -666,6 +624,6 @@
   <a class="btn btn--primary btn--lg" href="https://apps.apple.com/app/id6758021299" target="_blank" rel="noopener">Download on iPhone</a>
 </div>
 
-<script src="/assets/js/site.js?v=3" defer></script>
+<script src="/assets/js/site.js?v=4" defer></script>
 </body>
 </html>

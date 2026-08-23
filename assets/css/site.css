@@ -1,24 +1,29 @@
 /* ==========================================================================
-   Offliner: Ambient Glass for the web  ·  v3
+   Offliner for the web  ·  v4
    Port of LOCKIN/OfflinerDesignSystem.swift, tuned for a marketing site.
 
-   What changed in v3, and why:
-     - The old ground was near-black and every surface sat within a few
-       percent of it, so nothing read as a *thing*. Surfaces are now clearly
-       elevated above the ground and carry a visible lit edge.
-     - The text ramp was too dim at small sizes. Every step is brighter.
-     - Colour was present but never allowed to be seen. Orange now appears as
-       glow, as a gradient headline accent, as ring light around the product,
-       and as the single flooded CTA.
-     - Product visuals are rendered in CSS inside the phone frames, so the
-       page has something to look at with no image assets at all.
+   What changed in v4, and why. Every one of these is the same note:
+   translucency and dim grey are what make a page read as generated.
 
-   Philosophy (unchanged, read before adding anything):
-     1. Ground -> bloom -> glass -> content. Never place content on the ground.
+     - GROUND IS TRUE BLACK. Everything above it is a SOLID fill. Frosted
+       panes are gone: a blurred translucent card sitting over a coloured
+       bloom has no fixed colour, so nothing drawn on it can be relied on to
+       hold its contrast, and the whole page drifts a few percent grey.
+     - NO DIM TEXT. The ramp is four steps and the lowest of them is #B6B6C3.
+       Body copy is #D5D5DF, headings are pure white. Nothing sits at 50%.
+     - COLOUR IS SATURATED OR IT IS NOT THERE. #FF5A1F, not a washed tint of
+       it at 16% alpha. Tinted capsules, tinted icon tiles and tinted badges
+       have all been removed rather than restyled.
+     - HIERARCHY COMES FROM SIZE AND SPACE. Headline tracking is tighter,
+       section rhythm is looser, and the number of decorated components on
+       screen at once is far lower.
+
+   Philosophy (read before adding anything):
+     1. One flat value per surface, one hairline around it. No panes.
      2. One hero number per section. If you have two big numbers, one is wrong.
-     3. Colour is state, not decoration. Grey until it needs to mean something.
+     3. Colour is state, not decoration. White until it needs to mean something.
      4. Semibold is the ceiling. Emphasis is bigger and airier, never bolder.
-     5. Every panel uses .glass or .solid-glass. No bespoke card styling.
+     5. If a component needs a tint to be visible, it is the wrong component.
 
    No build step. No dependencies. One file.
    ========================================================================== */
@@ -62,46 +67,51 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Grounds. Slightly warmer and one step up from black so surfaces can sit
-     above it without needing to be grey boxes. */
-  --bg:          #0C0E16;
-  --bg-deep:     #07080F;
-  --bg-raise:    #12141F;
-  --solid-card:  #1A1D2B;
-  --solid-card2: #14161F;
+  /* Grounds. True black. Every surface above it is a SOLID fill, never a
+     translucent pane: a pane over a bloom is what makes a page look cheap. */
+  --bg:          #000000;
+  --bg-deep:     #000000;
+  --bg-raise:    #0A0A0E;
+  --solid-card:  #121218;
+  --solid-card2: #0D0D12;
+  --solid-card3: #17171F;
 
-  /* Text ramp. Pure white is reserved for hero figures and h1. */
+  /* Hairlines. Solid values, not rgba, so they read the same over a bloom. */
+  --line:        #24242D;
+  --line-hi:     #3A3A46;
+
+  /* Text ramp. Four steps, all high contrast. Nothing dim, nothing grey. */
   --text-hi:    #FFFFFF;
-  --text:       #F2F3F7;
-  --text-mid:   #C9CDDD;
-  --text-low:   #AAB0C4;
-  --text-faint: #868CA3;
+  --text:       #FFFFFF;
+  --text-mid:   #EDEDF2;
+  --text-low:   #D5D5DF;
+  --text-faint: #B6B6C3;
 
-  /* State accents */
-  --focus:      #FF7038;
-  --focus-lit:  #FF9057;
-  --focus-deep: #D53F16;
-  --distract:   #F97362;
-  --limited:    #F5BE4E;
-  --allowed:    #3DDCA0;
-  --neutral:    #7A80B8;
-  --neutral-hi: #9AA0D8;
+  /* State accents. Saturated: colour is state, and state must be legible. */
+  --focus:      #FF5A1F;
+  --focus-lit:  #FF8A45;
+  --focus-deep: #E33A00;
+  --distract:   #FF453A;
+  --limited:    #FFB020;
+  --allowed:    #1FD07A;
+  --neutral:    #8B8BFA;
+  --neutral-hi: #A9A9FF;
 
   /* Bloom hues */
-  --bloom-warm: #FF7038;
-  --bloom-cool: #7B6FE6;
+  --bloom-warm: #FF5A1F;
+  --bloom-cool: #E33A00;
 
   /* Radius */
-  --r-hero:   28px;
-  --r-card:   22px;
-  --r-inner:  16px;
+  --r-hero:   32px;
+  --r-card:   24px;
+  --r-inner:  18px;
   --r-button: 999px;
   --r-pill:   999px;
   --r-chip:   8px;
 
   /* Rhythm */
-  --pad-card:    24px;
-  --gap-card:    16px;
+  --pad-card:    26px;
+  --gap-card:    14px;
   --gap-element: 12px;
   --inset:       24px;
   --max:         1180px;
@@ -118,11 +128,12 @@
           BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI",
           Inter, system-ui, sans-serif;
 
-  /* Elevation */
-  --edge:      1px solid rgba(255,255,255,0.10);
-  --edge-lit:  1px solid rgba(255,255,255,0.16);
-  --lift:      0 1px 0 rgba(255,255,255,0.07) inset, 0 18px 44px rgba(0,0,0,0.46);
-  --glow-warm: 0 0 0 1px rgba(255,112,56,0.22), 0 16px 60px rgba(255,112,56,0.20);
+  /* Elevation. On a black ground a drop shadow is invisible, so separation
+     comes from a solid fill plus a solid hairline. */
+  --edge:      1px solid var(--line);
+  --edge-lit:  1px solid var(--line-hi);
+  --lift:      none;
+  --glow-warm: 0 10px 34px rgba(255,90,31,0.30);
 }
 
 /* --------------------------------------------------------------------------
@@ -140,12 +151,12 @@ html {
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--text-mid);
+  color: var(--text-low);
   font-family: var(--font);
-  font-size: 16.5px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: 0.004em;
+  line-height: 1.62;
+  letter-spacing: 0.002em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -158,7 +169,7 @@ a { color: inherit; text-decoration: none; }
 
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-::selection { background: rgba(255, 112, 56, 0.30); color: #fff; }
+::selection { background: var(--focus); color: #fff; }
 
 :focus-visible {
   outline: 2px solid var(--focus);
@@ -179,24 +190,24 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-h1 { color: var(--text-hi); font-size: clamp(2.55rem, 6.2vw, 4.35rem); letter-spacing: -0.036em; line-height: 1.02; }
-h2 { font-size: clamp(1.95rem, 4.1vw, 2.95rem);   letter-spacing: -0.03em; }
-h3 { font-size: clamp(1.14rem, 1.8vw, 1.35rem);   line-height: 1.24; }
-h4 { font-size: 1.02rem; line-height: 1.3; letter-spacing: -0.012em; }
+h1 { color: var(--text-hi); font-size: clamp(2.75rem, 6vw, 4.5rem); letter-spacing: -0.042em; line-height: 1.0; }
+h2 { font-size: clamp(2.05rem, 4.4vw, 3.1rem);  letter-spacing: -0.036em; line-height: 1.04; }
+h3 { font-size: clamp(1.16rem, 1.7vw, 1.32rem); line-height: 1.22; letter-spacing: -0.02em; }
+h4 { font-size: 1.04rem; line-height: 1.3; letter-spacing: -0.016em; }
 
-/* The one place a headline is allowed to carry colour. */
-.grad {
-  background: linear-gradient(102deg, var(--focus-lit) 4%, var(--focus) 42%, var(--focus-deep) 96%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+/* The one place a headline is allowed to carry colour: one flat, saturated
+   word. A gradient across a whole headline is decoration, and decoration is
+   the first thing that makes a page look generated rather than designed. */
+.grad, .hot {
+  color: var(--focus);
+  -webkit-text-fill-color: currentColor;
 }
 
 p { margin: 0 0 1.1em; }
 p:last-child { margin-bottom: 0; }
 
-strong { color: var(--text); font-weight: 600; }
+strong { color: var(--text-hi); font-weight: 600; }
+em { font-style: normal; }
 
 /* Section eyebrow. Always uppercase, always the smallest thing on screen. */
 .label {
@@ -208,51 +219,48 @@ strong { color: var(--text); font-weight: 600; }
   color: var(--text-faint);
   margin: 0 0 16px;
 }
-.label--focus { color: var(--focus-lit); }
+.label--focus { color: var(--focus); }
 
-/* Eyebrow rendered as a pill, for section heads that need more presence. */
+/* Section eyebrow. A tinted pill in front of a headline is a badge, and a
+   badge is a thing you put on a page when the headline is not good enough.
+   It is a flat, saturated, uppercase label instead. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin: 0 0 20px;
-  padding: 7px 15px;
-  border-radius: var(--r-pill);
-  border: 1px solid rgba(255,112,56,0.28);
-  background: linear-gradient(135deg, rgba(255,112,56,0.16), rgba(255,112,56,0.05));
-  color: var(--focus-lit);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  gap: 9px;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--focus);
+  font-size: 0.735rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.eyebrow--neutral {
-  border-color: rgba(255,255,255,0.13);
-  background: linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
-  color: var(--text-mid);
-}
+.eyebrow--neutral { color: var(--text-faint); }
 .eyebrow i {
-  width: 6px; height: 6px; border-radius: 50%;
+  width: 5px; height: 5px; border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 10px currentColor;
   flex-shrink: 0;
 }
 
 /* Standfirst under a heading. */
 .lede {
-  font-size: clamp(1.04rem, 1.4vw, 1.15rem);
-  line-height: 1.66;
-  color: var(--text-low);
-  max-width: 58ch;
+  font-size: clamp(1.08rem, 1.4vw, 1.2rem);
+  line-height: 1.62;
+  color: var(--text-mid);
+  max-width: 56ch;
+  letter-spacing: -0.006em;
 }
 
 .prose { max-width: var(--max-prose); }
-.prose p { color: var(--text-low); font-size: 1.03rem; line-height: 1.75; }
-.prose h3 { margin: 2.4em 0 0.7em; color: var(--text); }
+.prose p { color: var(--text-low); font-size: 1.06rem; line-height: 1.72; }
+.prose h3 { margin: 2.4em 0 0.7em; color: var(--text-hi); }
 .prose h3:first-child { margin-top: 0; }
 .prose ul { margin: 0 0 1.3em; padding-left: 1.15em; color: var(--text-low); }
 .prose li { margin-bottom: 0.5em; }
-.prose a { color: var(--focus-lit); border-bottom: 1px solid rgba(255,112,56,0.35); }
+.prose a { color: var(--focus); border-bottom: 1px solid var(--focus-deep); }
 .prose a:hover { border-bottom-color: var(--focus); }
 
 .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
@@ -276,15 +284,18 @@ section { position: relative; }
 .section { padding-block: var(--section-y); }
 .section--tight { padding-block: clamp(40px, 5vw, 62px); }
 
-.section-head { max-width: 640px; margin-bottom: clamp(34px, 4.5vw, 52px); }
+.section-head { max-width: 680px; margin-bottom: clamp(38px, 5vw, 60px); }
 .section-head.center { margin-inline: auto; }
-.section-head .lede { margin-top: 18px; }
+.section-head .lede { margin-top: 20px; }
+.section-head h2 { max-width: 20ch; }
+.section-head.center h2 { margin-inline: auto; }
+.section-head--wide h2 { max-width: 26ch; }
 
 /* Hairline divider between major bands. */
 .rule {
   height: 1px;
   background: linear-gradient(90deg,
-    transparent, rgba(255,255,255,0.11) 22%, rgba(255,255,255,0.11) 78%, transparent);
+    transparent, #262630 20%, #262630 80%, transparent);
   border: 0;
   margin: 0;
 }
@@ -301,7 +312,7 @@ section { position: relative; }
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(110% 62% at 50% -14%, rgba(255,112,56,0.16), transparent 62%),
+    radial-gradient(96% 52% at 62% -12%, rgba(255,90,31,0.20), transparent 62%),
     var(--bg);
   contain: strict;
 }
@@ -316,11 +327,11 @@ section { position: relative; }
 }
 
 .ambient::before {
-  width: 76vw; height: 76vw;
-  max-width: 1000px; max-height: 1000px;
-  top: -32vw; right: -20vw;
+  width: 62vw; height: 62vw;
+  max-width: 860px; max-height: 860px;
+  top: -30vw; right: -22vw;
   background: radial-gradient(circle,
-    rgba(255,112,56,0.50) 0%, rgba(255,112,56,0.19) 42%, transparent 68%);
+    rgba(255,90,31,0.52) 0%, rgba(255,90,31,0.18) 44%, transparent 68%);
 }
 
 .ambient::after {
@@ -328,7 +339,7 @@ section { position: relative; }
   max-width: 880px; max-height: 880px;
   bottom: -26vw; left: -20vw;
   background: radial-gradient(circle,
-    rgba(123,111,230,0.30) 0%, rgba(123,111,230,0.11) 45%, transparent 70%);
+    rgba(227,58,0,0.34) 0%, rgba(227,58,0,0.10) 45%, transparent 70%);
 }
 
 /* Fine film grain. Fixed, one layer, no repaint cost. */
@@ -337,7 +348,7 @@ section { position: relative; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.28;
+  opacity: 0.15;
   background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>\
 <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
@@ -355,12 +366,12 @@ section { position: relative; }
   filter: blur(110px);
 }
 .bloom--warm {
-  width: 640px; height: 640px;
-  background: radial-gradient(circle, rgba(255,112,56,0.28), transparent 68%);
+  width: 660px; height: 660px;
+  background: radial-gradient(circle, rgba(255,90,31,0.30), transparent 68%);
 }
 .bloom--cool {
-  width: 580px; height: 580px;
-  background: radial-gradient(circle, rgba(123,111,230,0.26), transparent 70%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(227,58,0,0.26), transparent 70%);
 }
 
 /* --------------------------------------------------------------------------
@@ -369,49 +380,29 @@ section { position: relative; }
    .solid-glass solid twin, visually identical, for anything in a long scroll
    -------------------------------------------------------------------------- */
 
+/* Both are now the SAME solid surface. Frosted panes were the single biggest
+   thing making this page read as a template: a blurred translucent card over
+   a coloured bloom has no fixed colour, so nothing on it can be trusted to
+   hold contrast. A surface is one flat value with one hairline. */
 .glass,
 .solid-glass {
   position: relative;
   border-radius: var(--r-card);
   border: var(--edge);
-  box-shadow: var(--lift);
+  background: var(--solid-card);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
   isolation: isolate;
 }
 
-.glass {
-  background:
-    linear-gradient(150deg, rgba(255,255,255,0.11), rgba(255,255,255,0.03) 46%),
-    rgba(20, 22, 33, 0.62);
-  -webkit-backdrop-filter: blur(28px) saturate(155%);
-  backdrop-filter: blur(28px) saturate(155%);
-}
-
-.solid-glass {
-  background:
-    linear-gradient(150deg, rgba(255,255,255,0.10), rgba(255,255,255,0.022) 46%),
-    linear-gradient(160deg, var(--solid-card), var(--solid-card2));
-}
-
-/* Crisp lit top edge. */
 .glass::before,
-.solid-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.28), transparent 52%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  pointer-events: none;
-}
+.solid-glass::before { display: none; }
 
-/* Optional state tint. Never a large flat fill, only a wash. */
-.tint-focus    { background-color: rgba(255, 112, 56, 0.07); }
-.tint-allowed  { background-color: rgba(61, 220, 160, 0.06); }
-.tint-neutral  { background-color: rgba(122, 128, 184, 0.07); }
+/* State tint, as a solid mixed value rather than a wash over the ground. */
+.tint-focus    { background-color: #1A1009; }
+.tint-allowed  { background-color: #08170F; }
+.tint-neutral  { background-color: #101020; }
 
 /* --------------------------------------------------------------------------
    7. Cards
@@ -424,8 +415,8 @@ section { position: relative; }
 
 .card--lg { padding: clamp(24px, 3.2vw, 40px); }
 
-.card h3 { margin-bottom: 9px; }
-.card p  { color: var(--text-low); font-size: 0.945rem; line-height: 1.6; }
+.card h3 { margin-bottom: 10px; color: var(--text-hi); }
+.card p  { color: var(--text-low); font-size: 0.975rem; line-height: 1.58; max-width: 54ch; }
 
 .grid { display: grid; gap: var(--gap-card); }
 .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -436,10 +427,15 @@ section { position: relative; }
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
               box-shadow var(--dur) var(--ease);
 }
+.card--hover {
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background-color var(--dur) var(--ease);
+}
 .card--hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,0.20);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.09) inset, 0 26px 60px rgba(0,0,0,0.54);
+  transform: translateY(-3px);
+  border-color: var(--line-hi);
+  background: var(--solid-card3);
+  box-shadow: none;
 }
 
 /* Bento: an asymmetric feature grid. The first cell is twice as wide, which
@@ -453,39 +449,28 @@ section { position: relative; }
 .bento > .bento--wide { grid-column: span 3; }
 .bento > .bento--full { grid-column: span 6; }
 
-/* Icon tile that sits at the top of a feature card. */
+/* Icon at the top of a feature card. It used to be a tinted rounded tile,
+   which is the most recognisable generated-landing-page component there is.
+   The icon carries the state colour on its own, at full saturation. */
 .tile {
-  width: 44px; height: 44px;
-  display: grid; place-items: center;
-  border-radius: 13px;
-  margin-bottom: 16px;
-  background: linear-gradient(150deg, rgba(255,112,56,0.20), rgba(255,112,56,0.05));
-  border: 1px solid rgba(255,112,56,0.24);
-  color: var(--focus-lit);
+  display: block;
+  width: auto; height: auto;
+  margin-bottom: 18px;
+  background: none;
+  border: 0;
+  color: var(--focus);
 }
-.tile svg { width: 21px; height: 21px; }
-.tile--neutral {
-  color: var(--neutral-hi);
-  background: linear-gradient(150deg, rgba(154,160,216,0.18), rgba(154,160,216,0.04));
-  border-color: rgba(154,160,216,0.22);
-}
-.tile--allowed {
-  color: var(--allowed);
-  background: linear-gradient(150deg, rgba(61,220,160,0.18), rgba(61,220,160,0.04));
-  border-color: rgba(61,220,160,0.22);
-}
-.tile--limited {
-  color: var(--limited);
-  background: linear-gradient(150deg, rgba(245,190,78,0.18), rgba(245,190,78,0.04));
-  border-color: rgba(245,190,78,0.22);
-}
+.tile svg { width: 28px; height: 28px; }
+.tile--neutral { color: var(--neutral-hi); }
+.tile--allowed { color: var(--allowed); }
+.tile--limited { color: var(--limited); }
 
 /* Icons are line only: 1.7 stroke, round caps and joins, 24 viewBox. */
 .ico {
   width: 24px; height: 24px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.7;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -514,24 +499,30 @@ section { position: relative; }
 
 .btn--primary {
   color: #fff;
-  background: linear-gradient(135deg, var(--focus-lit), var(--focus) 46%, var(--focus-deep));
-  box-shadow: 0 10px 30px rgba(255, 112, 56, 0.36), 0 1px 0 rgba(255,255,255,0.28) inset;
+  background: linear-gradient(180deg, #FF7A3D, #FF4E10);
+  box-shadow: 0 4px 16px rgba(255, 90, 31, 0.24);
 }
 .btn--primary:hover {
-  box-shadow: 0 16px 44px rgba(255, 112, 56, 0.52), 0 1px 0 rgba(255,255,255,0.34) inset;
+  background: linear-gradient(180deg, #FF8B52, #FF5A1F);
+  box-shadow: 0 8px 26px rgba(255, 90, 31, 0.38);
 }
+.btn--primary.btn--lg { box-shadow: 0 8px 30px rgba(255, 90, 31, 0.30); }
+.btn--primary.btn--lg:hover { box-shadow: 0 14px 42px rgba(255, 90, 31, 0.44); }
 
 .btn--glass {
-  color: var(--text);
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
-  border: var(--edge-lit);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  color: var(--text-hi);
+  background: #16161D;
+  border: 1px solid #33333F;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
 }
-.btn--glass:hover { border-color: rgba(255,255,255,0.30); background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)); }
+.btn--glass:hover { border-color: #4B4B59; background: #1E1E27; }
 
 .btn--lg { padding: 17px 32px; font-size: 1.02rem; }
+/* The nav CTA sits two inches from a bloom. A glow on top of a glow is haze. */
 .btn--sm { padding: 11px 20px; font-size: 0.88rem; }
+.btn--primary.btn--sm { box-shadow: none; }
+.btn--primary.btn--sm:hover { box-shadow: none; }
 
 .btn-row {
   display: flex;
@@ -543,8 +534,8 @@ section { position: relative; }
 
 /* Microcopy that sits directly under a CTA. */
 .btn-note {
-  margin-top: 16px;
-  font-size: 0.83rem;
+  margin-top: 18px;
+  font-size: 0.86rem;
   color: var(--text-faint);
   letter-spacing: 0.005em;
 }
@@ -558,8 +549,8 @@ section { position: relative; }
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: var(--focus-lit);
-  font-size: 0.92rem;
+  color: var(--focus);
+  font-size: 0.95rem;
   font-weight: 600;
   transition: gap var(--dur) var(--ease);
 }
@@ -580,10 +571,10 @@ section { position: relative; }
 }
 
 .header.is-scrolled {
-  background: rgba(12, 14, 22, 0.76);
-  border-bottom-color: rgba(255,255,255,0.09);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
-  backdrop-filter: blur(22px) saturate(160%);
+  background: #000;
+  border-bottom-color: var(--line);
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
 }
 
 .header__inner {
@@ -624,21 +615,20 @@ section { position: relative; }
 
 .nav a {
   position: relative;
-  font-size: 0.925rem;
+  font-size: 0.94rem;
   font-weight: 500;
   color: var(--text-low);
   transition: color var(--dur) var(--ease);
 }
-.nav a:hover { color: var(--text); }
-.nav a[aria-current="page"] { color: var(--text); }
+.nav a:hover { color: var(--text-hi); }
+.nav a[aria-current="page"] { color: var(--text-hi); }
 .nav a[aria-current="page"]::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -7px;
+  left: 0; right: 0; bottom: -8px;
   height: 2px;
   border-radius: 2px;
   background: var(--focus);
-  box-shadow: 0 0 12px var(--focus);
 }
 
 .header__right {
@@ -654,7 +644,7 @@ section { position: relative; }
   transition: color var(--dur) var(--ease);
   line-height: 0;
 }
-.socials a:hover { color: var(--focus-lit); }
+.socials a:hover { color: var(--focus); }
 .socials svg { width: 17px; height: 17px; fill: currentColor; }
 
 /* Mobile menu */
@@ -683,9 +673,9 @@ section { position: relative; }
   position: fixed;
   inset: 72px 0 0;
   z-index: 99;
-  background: rgba(10, 11, 18, 0.98);
-  -webkit-backdrop-filter: blur(26px);
-  backdrop-filter: blur(26px);
+  background: #000;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
   padding: 30px var(--inset) 48px;
   opacity: 0;
   visibility: hidden;
@@ -699,10 +689,10 @@ section { position: relative; }
 .mobile-menu a.mobile-link {
   display: block;
   padding: 17px 0;
-  font-size: 1.28rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  color: var(--text);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-hi);
+  border-bottom: 1px solid var(--line);
 }
 .mobile-menu .btn { width: 100%; margin-top: 28px; }
 .mobile-menu .socials { margin-top: 30px; gap: 24px; justify-content: center; }
@@ -713,40 +703,45 @@ section { position: relative; }
    -------------------------------------------------------------------------- */
 
 .hero {
-  padding-top: clamp(104px, 12vw, 146px);
+  padding-top: clamp(104px, 12vw, 150px);
   padding-bottom: clamp(28px, 5vw, 56px);
   text-align: center;
 }
 
-.hero h1 { margin-bottom: 22px; max-width: 16ch; margin-inline: auto; }
+.hero h1 { margin-bottom: 24px; max-width: 15ch; margin-inline: auto; }
 .hero .lede {
   margin-inline: auto;
-  font-size: clamp(1.04rem, 1.6vw, 1.19rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.26rem);
   color: var(--text-mid);
-  max-width: 54ch;
+  max-width: 44ch;
+  line-height: 1.5;
 }
 
-/* Rating pill. Social proof sits above the fold, next to the claim. */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 16px 7px 13px;
-  margin-bottom: 24px;
-  border-radius: var(--r-pill);
-  border: var(--edge-lit);
-  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  font-size: 0.805rem;
+.hero .btn-row { margin-top: 34px; justify-content: center; }
+
+/* One line of plain fact under the buttons. Replaces the old rating pill,
+   which was a tinted capsule doing the job a sentence does better. */
+.hero__note {
+  margin-top: 20px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-mid);
+  color: var(--text-faint);
   letter-spacing: 0.005em;
 }
-.pill .stars { display: inline-flex; gap: 1.5px; color: var(--limited); }
-.pill .stars svg { width: 12px; height: 12px; fill: currentColor; }
+.hero__note b { color: var(--text-hi); font-weight: 600; }
 
-.hero .btn-row { margin-top: 30px; justify-content: center; }
+/* The device shot. It carries its own light and falls to true black at every
+   edge, so it needs no frame, no border and no pane behind it. */
+.hero__shot {
+  width: 100%;
+  max-width: 470px;
+  height: auto;
+  margin-inline: auto;
+  /* The render falls to true black at every edge, so screen blending drops
+     that black entirely and the device sits IN the page rather than in a
+     rectangle on top of it. No mask, no frame, no visible bounding box. */
+  mix-blend-mode: screen;
+}
 
 /* Compact trust row. Replaces the old scrolling marquee, which took a full
    band of vertical space to say very little. */
@@ -769,18 +764,18 @@ section { position: relative; }
 }
 .trust svg { width: 14px; height: 14px; color: var(--allowed); }
 
-/* Split hero: headline/CTA on the left, phone mock on the right. */
+/* Split hero: headline/CTA on the left, the device on the right. */
 .hero--split .wrap {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(36px, 6vw, 80px);
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: clamp(30px, 5vw, 68px);
   align-items: center;
   text-align: left;
 }
-.hero--split .pill,
 .hero--split h1,
 .hero--split .lede { margin-inline: 0; }
-.hero--split h1 { max-width: 18ch; }
+.hero--split h1 { max-width: 13ch; }
+.hero--split .lede { max-width: 40ch; }
 .hero--split .btn-row { justify-content: flex-start; }
 .hero--split .hero__media { display: flex; justify-content: center; }
 
@@ -798,11 +793,10 @@ section { position: relative; }
   margin-inline: auto;
   border-radius: 13.5%/6.2%;
   padding: 2.4%;
-  background: linear-gradient(150deg, #6a6d80 0%, #1b1d27 22%, #131520 60%, #5b5e72 100%);
+  background: linear-gradient(150deg, #565866 0%, #14151C 17%, #0B0C11 60%, #4A4C58 100%);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.14),
-    0 40px 90px rgba(0,0,0,0.70),
-    0 0 120px rgba(255,112,56,0.20);
+    0 0 0 1px rgba(255,255,255,0.09),
+    0 40px 90px rgba(0,0,0,0.70);
 }
 
 /* Ring light behind the hero device. This is most of what makes the product
@@ -813,8 +807,8 @@ section { position: relative; }
   z-index: -1;
   inset: -14% -22%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255,112,56,0.34), transparent 72%);
-  filter: blur(46px);
+  background: radial-gradient(closest-side, rgba(255,90,31,0.40), transparent 72%);
+  filter: blur(50px);
   pointer-events: none;
 }
 
@@ -1104,19 +1098,19 @@ section { position: relative; }
   justify-content: center;
   padding: 9cqw 5.4cqw 6cqw;
   background:
-    radial-gradient(120% 55% at 50% 0%, rgba(255,112,56,0.34), transparent 64%),
-    radial-gradient(110% 50% at 50% 100%, rgba(213,63,22,0.22), transparent 66%),
-    #0A0B12;
+    radial-gradient(120% 55% at 50% 0%, rgba(255,90,31,0.30), transparent 64%),
+    radial-gradient(110% 50% at 50% 100%, rgba(227,58,0,0.20), transparent 66%),
+    #050508;
 }
 .ui__mesh {
   border-radius: 6cqw;
   padding: 6cqw 5cqw;
   text-align: center;
   background:
-    radial-gradient(90% 80% at 20% 10%, rgba(255,144,87,0.55), transparent 60%),
-    radial-gradient(85% 80% at 85% 90%, rgba(213,63,22,0.60), transparent 60%),
-    linear-gradient(150deg, #FF7038, #C2360F);
-  box-shadow: 0 3cqw 9cqw rgba(255,112,56,0.35);
+    radial-gradient(90% 80% at 20% 10%, rgba(255,150,90,0.55), transparent 60%),
+    radial-gradient(85% 80% at 85% 90%, rgba(214,48,0,0.65), transparent 60%),
+    linear-gradient(150deg, #FF5A1F, #C42D00);
+  box-shadow: 0 3cqw 9cqw rgba(255,90,31,0.35);
   margin-bottom: 4.4cqw;
 }
 .ui__lock { width: 9cqw; height: 9cqw; margin: 0 auto 3cqw; color: #fff; }
@@ -1129,24 +1123,24 @@ section { position: relative; }
   display: flex; align-items: center; gap: 3cqw;
   padding: 3.2cqw 3.6cqw;
   border-radius: 4cqw;
-  border: 0.35cqw solid rgba(255,255,255,0.12);
-  background: linear-gradient(150deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
-  font-size: 3.4cqw; font-weight: 600; color: var(--text);
+  border: 0.3cqw solid #2C2C36;
+  background: #16161D;
+  font-size: 3.4cqw; font-weight: 600; color: var(--text-hi);
 }
-.ui__sub svg { width: 4.6cqw; height: 4.6cqw; fill: none; stroke: var(--focus-lit); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.ui__sub svg { width: 4.6cqw; height: 4.6cqw; fill: none; stroke: var(--focus); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
 .ui__cta {
   display: block; text-align: center;
   padding: 3.8cqw;
   border-radius: 999px;
   font-size: 3.7cqw; font-weight: 600; color: #fff;
-  background: linear-gradient(135deg, var(--focus-lit), var(--focus-deep));
-  box-shadow: 0 2cqw 6cqw rgba(255,112,56,0.45);
+  background: linear-gradient(180deg, #FF7A3D, #FF4E10);
+  box-shadow: 0 2cqw 6cqw rgba(255,90,31,0.45);
 }
 .ui__sealed {
   text-align: center;
   font-size: 2.9cqw;
-  color: var(--text-faint);
+  color: var(--text-low);
   margin-top: 3cqw;
   letter-spacing: 0.02em;
 }
@@ -1169,20 +1163,25 @@ section { position: relative; }
 }
 
 /* --------------------------------------------------------------------------
-   12. Logo marquee (kept for other pages)
+   12. Credibility marquee
+   The "As featured in" strip, with the press logos nobody has yet swapped
+   for the only list that is actually true: the apps this was built to quit.
+   Logos are pure white at full opacity. A row of dimmed grey logos is the
+   single clearest tell of a template, and it also says the endorsements are
+   not worth looking at.
    -------------------------------------------------------------------------- */
 
 .marquee {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
 .marquee__track {
   display: flex;
   width: max-content;
-  gap: clamp(38px, 6vw, 76px);
+  gap: clamp(40px, 5vw, 68px);
   align-items: center;
-  animation: marquee 34s linear infinite;
+  animation: marquee 46s linear infinite;
 }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -1190,37 +1189,94 @@ section { position: relative; }
 .marquee__item {
   display: flex;
   align-items: center;
-  height: 30px;
-  color: var(--text-faint);
+  height: 34px;
+  color: var(--text-hi);
   font-size: 0.94rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  opacity: 0.7;
   white-space: nowrap;
-  transition: opacity var(--dur) var(--ease);
 }
-.marquee__item:hover { opacity: 1; }
-.marquee__item img { max-height: 26px; width: auto; filter: grayscale(1) brightness(1.9); }
+.marquee__item img { max-height: 26px; width: auto; }
+
+/* One "ex-" entry: a saturated prefix, the real glyph, the real name. */
+.ex {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  white-space: nowrap;
+  color: var(--text-hi);
+}
+.ex__tag {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--focus);
+}
+.ex__logo {
+  width: 25px; height: 25px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.ex__name {
+  font-size: 1.22rem;
+  font-weight: 600;
+  letter-spacing: -0.024em;
+}
+/* X's glyph IS its wordmark, so it gets no name beside it. */
+.ex--mark .ex__logo { width: 27px; height: 27px; }
+
+.creds { padding-block: clamp(46px, 6vw, 76px); }
+.creds__head { text-align: center; margin-bottom: clamp(34px, 4vw, 52px); }
+.creds__head h2 {
+  font-size: clamp(1.5rem, 2.9vw, 2.15rem);
+  letter-spacing: -0.03em;
+  max-width: 24ch;
+  margin-inline: auto;
+}
+.creds__head p {
+  margin: 14px auto 0;
+  max-width: 46ch;
+  font-size: 0.99rem;
+  color: var(--text-faint);
+}
 
 /* --------------------------------------------------------------------------
    13. Steps
    -------------------------------------------------------------------------- */
 
-.steps { counter-reset: step; }
+.steps { counter-reset: step; gap: clamp(26px, 3.2vw, 46px); }
 
-.step { position: relative; padding: clamp(24px, 3vw, 30px); }
+/* Four identical dark boxes holding four sentences of different lengths is a
+   template. A ruled column is the same information with the box removed, and
+   the ragged bottom edge stops being visible the moment there is no bottom
+   edge. */
+.step {
+  position: relative;
+  padding: 22px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line-hi);
+  border-radius: 0;
+  background: none;
+}
+.step:hover { background: none; transform: none; }
+.step h3 { margin-bottom: 10px; color: var(--text-hi); }
+.step p { color: var(--text-low); font-size: 0.99rem; line-height: 1.56; }
+
+/* The step number is a number, set in the accent, not a glowing token in a
+   circle. Two decorated circles in a row and the page is a template again. */
 .step__n {
-  display: grid;
-  place-items: center;
-  width: 36px; height: 36px;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,112,56,0.45);
-  background: linear-gradient(150deg, rgba(255,112,56,0.24), rgba(255,112,56,0.06));
-  color: var(--focus-lit);
-  font-size: 0.86rem;
-  font-weight: 600;
-  box-shadow: 0 0 22px rgba(255,112,56,0.22);
+  display: block;
+  width: auto; height: auto;
+  margin-bottom: 16px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--focus);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-variant-numeric: tabular-nums;
 }
 
 /* --------------------------------------------------------------------------
@@ -1240,7 +1296,7 @@ section { position: relative; }
 .hero-number .unit {
   font-size: 0.34em;
   font-weight: 600;
-  color: var(--text-low);
+  color: var(--text-faint);
   letter-spacing: -0.01em;
   vertical-align: baseline;
   margin-left: 4px;
@@ -1257,11 +1313,11 @@ section { position: relative; }
   font-variant-numeric: tabular-nums;
   margin-bottom: 9px;
 }
-.stat__n em { font-style: normal; color: var(--focus-lit); }
+.stat__n em { font-style: normal; color: var(--focus); }
 .stat__l {
-  font-size: 0.82rem;
-  color: var(--text-faint);
-  letter-spacing: 0.035em;
+  font-size: 0.86rem;
+  color: var(--text-low);
+  letter-spacing: 0.01em;
   line-height: 1.5;
 }
 
@@ -1283,14 +1339,14 @@ section { position: relative; }
 .bar {
   height: 6px;
   border-radius: var(--r-pill);
-  background: rgba(255,255,255,0.09);
+  background: #23232B;
   overflow: hidden;
 }
 .bar > i {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--focus-lit), var(--focus-deep));
+  background: var(--focus);
 }
 .bar--allowed > i { background: var(--allowed); }
 .bar--distract > i { background: var(--distract); }
@@ -1310,52 +1366,52 @@ section { position: relative; }
 .split--narrow { grid-template-columns: 1.15fr 0.85fr; }
 
 /* A tight list of claims under a split heading. Replaces stacked paragraphs. */
-.ticks { display: grid; gap: 14px; margin: 26px 0 0; padding: 0; list-style: none; }
+.ticks { display: grid; gap: 17px; margin: 30px 0 0; padding: 0; list-style: none; }
 .ticks li {
   display: grid;
   grid-template-columns: 22px 1fr;
   gap: 12px;
   align-items: start;
-  font-size: 0.97rem;
+  font-size: 1rem;
   color: var(--text-low);
-  line-height: 1.55;
+  line-height: 1.56;
 }
-.ticks li b { color: var(--text); font-weight: 600; }
+.ticks li b { color: var(--text-hi); font-weight: 600; }
 .ticks li::before {
   content: "";
   width: 21px; height: 21px;
-  margin-top: 1px;
+  margin-top: 2px;
   border-radius: 50%;
   background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF9057' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>") center / 12px no-repeat,
-    linear-gradient(150deg, rgba(255,112,56,0.24), rgba(255,112,56,0.07));
-  border: 1px solid rgba(255,112,56,0.28);
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>") center / 12px no-repeat,
+    #FF5A1F;
+  border: 0;
 }
 
 /* --------------------------------------------------------------------------
    16. Accordion. Native details, no JS needed.
    -------------------------------------------------------------------------- */
 
-.acc { display: grid; gap: 10px; }
+.acc { display: grid; gap: 8px; }
 
 .acc details {
   border-radius: var(--r-inner);
   overflow: hidden;
   transition: border-color var(--dur) var(--ease);
 }
-.acc details[open] { border-color: rgba(255,255,255,0.20); }
+.acc details[open] { border-color: var(--line-hi); background: var(--solid-card3); }
 
 .acc summary {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 19px 22px;
+  padding: 21px 24px;
   cursor: pointer;
   list-style: none;
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: -0.008em;
+  color: var(--text-hi);
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
   transition: color var(--dur) var(--ease);
 }
 .acc summary::-webkit-details-marker { display: none; }
@@ -1368,23 +1424,24 @@ section { position: relative; }
   color: var(--text-faint);
   transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.acc details[open] summary .chev { transform: rotate(180deg); color: var(--focus-lit); }
+.acc details[open] summary .chev { transform: rotate(180deg); color: var(--focus); }
 
 .acc__body {
-  padding: 0 22px 22px;
+  padding: 0 24px 24px;
   color: var(--text-low);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.66;
 }
+.acc__body p + p { margin-top: 1em; }
 .acc__body .why {
   display: block;
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 0.83rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.87rem;
   color: var(--text-faint);
 }
-.acc__body .why b { color: var(--focus-lit); font-weight: 600; }
+.acc__body .why b { color: var(--focus); font-weight: 600; }
 
 /* --------------------------------------------------------------------------
    17. Timeline
@@ -1396,8 +1453,7 @@ section { position: relative; }
   position: absolute;
   left: 5px; top: 8px; bottom: 8px;
   width: 1px;
-  background: linear-gradient(180deg,
-    var(--focus), rgba(255,112,56,0.35) 42%, rgba(255,255,255,0.10));
+  background: linear-gradient(180deg, var(--focus), var(--focus-deep) 42%, #24242D);
 }
 
 .timeline__item { position: relative; padding-bottom: 34px; }
@@ -1408,9 +1464,8 @@ section { position: relative; }
   left: -30px; top: 7px;
   width: 11px; height: 11px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--focus);
-  box-shadow: 0 0 14px rgba(255,112,56,0.55);
+  background: var(--focus);
+  border: 0;
 }
 .timeline__when {
   display: block;
@@ -1418,44 +1473,76 @@ section { position: relative; }
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--focus-lit);
+  color: var(--focus);
   margin-bottom: 8px;
 }
-.timeline__item h4 { margin-bottom: 7px; }
-.timeline__item p { color: var(--text-low); font-size: 0.94rem; }
+.timeline__item h4 { margin-bottom: 7px; color: var(--text-hi); }
+.timeline__item p { color: var(--text-low); font-size: 0.97rem; }
 
 /* --------------------------------------------------------------------------
    18. Quote / testimonial
    -------------------------------------------------------------------------- */
 
 .quote { padding: clamp(24px, 3vw, 32px); }
+.quote { display: flex; flex-direction: column; }
 .quote blockquote {
-  margin: 0 0 20px;
-  font-size: 1.04rem;
-  line-height: 1.62;
-  color: var(--text);
-  letter-spacing: -0.008em;
+  margin: 0 0 22px;
+  font-size: clamp(1.06rem, 1.5vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--text-hi);
+  letter-spacing: -0.018em;
+  font-weight: 500;
 }
 .quote figcaption {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.84rem;
-  color: var(--text-faint);
+  gap: 11px;
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-mid);
 }
 .quote .stars { display: inline-flex; gap: 2px; color: var(--limited); }
-.quote .stars svg { width: 13px; height: 13px; fill: currentColor; }
+.quote .stars svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* The about page aside follows the story instead of floating opposite the
+   middle of it, which is what a centred grid item does next to 900 words. */
+.about__aside { align-self: start; position: sticky; top: 96px; }
+
+/* Portrait. A photograph does not need a card around it: the picture is the
+   panel. Wrapping it in one is how a real face ends up looking like stock. */
+.portrait { margin: 0; }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 24%;
+  border-radius: var(--r-card);
+  display: block;
+}
+.portrait figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 18px 2px 0;
+}
+.portrait figcaption strong {
+  color: var(--text-hi);
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+.portrait figcaption span { font-size: 0.9rem; color: var(--text-faint); }
 
 /* Pull quote used as a full-width statement. */
 .statement {
   font-size: clamp(1.5rem, 3.4vw, 2.35rem);
   font-weight: 600;
   line-height: 1.24;
-  letter-spacing: -0.028em;
-  color: var(--text);
+  letter-spacing: -0.03em;
+  color: var(--text-hi);
   max-width: 20ch;
 }
-.statement em { font-style: normal; color: var(--focus-lit); }
+.statement em { font-style: normal; color: var(--focus); }
 
 /* --------------------------------------------------------------------------
    19. Comparison table
@@ -1466,8 +1553,8 @@ section { position: relative; }
 .compare th, .compare td {
   padding: 15px 20px;
   text-align: left;
-  font-size: 0.92rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line);
 }
 .compare thead th {
   font-size: 0.7rem;
@@ -1475,14 +1562,14 @@ section { position: relative; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-faint);
-  background: rgba(255,255,255,0.04);
+  background: #17171F;
 }
-.compare tbody th { color: var(--text); font-weight: 500; }
+.compare tbody th { color: var(--text-hi); font-weight: 600; }
 .compare td { color: var(--text-low); }
 .compare tr:last-child th, .compare tr:last-child td { border-bottom: 0; }
-.compare .yes { color: var(--allowed); }
+.compare .yes { color: var(--allowed); font-weight: 600; }
 .compare .no  { color: var(--text-faint); }
-.compare col.highlight { background: rgba(255, 112, 56, 0.07); }
+.compare col.highlight { background: #1A1009; }
 
 /* --------------------------------------------------------------------------
    20. Form (suggestion box)
@@ -1502,11 +1589,11 @@ section { position: relative; }
   width: 100%;
   padding: 13px 16px;
   border-radius: var(--r-inner);
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
+  border: 1px solid var(--line-hi);
+  background: #0D0D12;
+  color: var(--text-hi);
   font: inherit;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
 .field textarea { min-height: 128px; resize: vertical; line-height: 1.6; }
@@ -1516,8 +1603,8 @@ section { position: relative; }
 .field textarea:focus,
 .field select:focus {
   outline: none;
-  border-color: rgba(255,112,56,0.6);
-  background: rgba(255,255,255,0.065);
+  border-color: var(--focus);
+  background: #101016;
 }
 
 /* --------------------------------------------------------------------------
@@ -1525,8 +1612,8 @@ section { position: relative; }
    -------------------------------------------------------------------------- */
 
 .footer {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(7, 8, 15, 0.6);
+  border-top: 1px solid var(--line);
+  background: #000;
   padding-block: clamp(48px, 5.5vw, 68px) 28px;
   margin-top: clamp(48px, 7vw, 88px);
 }
@@ -1541,8 +1628,8 @@ section { position: relative; }
 .footer__brand p {
   margin-top: 15px;
   max-width: 34ch;
-  font-size: 0.885rem;
-  line-height: 1.66;
+  font-size: 0.92rem;
+  line-height: 1.62;
   color: var(--text-faint);
 }
 .footer__brand .socials { margin-top: 20px; gap: 18px; }
@@ -1558,11 +1645,11 @@ section { position: relative; }
 }
 .footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
 .footer__col a {
-  font-size: 0.895rem;
+  font-size: 0.93rem;
   color: var(--text-low);
   transition: color var(--dur) var(--ease);
 }
-.footer__col a:hover { color: var(--focus-lit); }
+.footer__col a:hover { color: var(--focus); }
 
 .footer__bottom {
   display: flex;
@@ -1571,8 +1658,8 @@ section { position: relative; }
   justify-content: space-between;
   gap: 14px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  font-size: 0.79rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.83rem;
   color: var(--text-faint);
 }
 
@@ -1635,10 +1722,13 @@ section { position: relative; }
   .socials { gap: 12px; }
 }
 
+@media (max-width: 1040px) {
+  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 980px) {
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 34px; }
   .footer__brand { grid-column: 1 / -1; }
-  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bento > * { grid-column: span 3; }
   .bento > .bento--wide { grid-column: span 6; }
 }
@@ -1651,11 +1741,13 @@ section { position: relative; }
   .split--media-first > *:last-child { order: 0; }
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sticky-cta { display: block; }
-  .hero--split .wrap { grid-template-columns: 1fr; text-align: center; }
-  .hero--split .pill,
+  .hero--split .wrap { grid-template-columns: 1fr; text-align: center; gap: 8px; }
   .hero--split h1,
-  .hero--split .lede { margin-inline: auto; }
+  .hero--split .lede { margin-inline: auto; max-width: 15ch; }
+  .hero--split .lede { max-width: 42ch; }
   .hero--split .btn-row { justify-content: center; }
+  .hero__shot { max-width: 380px; }
+  .ex__name { font-size: 1.1rem; }
 }
 
 @media (max-width: 620px) {
@@ -1673,6 +1765,11 @@ section { position: relative; }
     text-align: center;
   }
   .trust { gap: 8px 18px; }
+  .hero__shot { max-width: 320px; }
+  .marquee__track { gap: 34px; }
+  .ex { gap: 9px; }
+  .ex__name { font-size: 1.02rem; }
+  .ex__logo { width: 21px; height: 21px; }
   .phone-trio { gap: 8px; }
   .phone-trio .phone { max-width: 30vw; }
   .compare { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -1684,9 +1781,10 @@ section { position: relative; }
 
 /* Very small phones: SE class. Nothing may overflow here. */
 @media (max-width: 380px) {
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.72rem; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.78rem; }
   .btn--lg { padding: 16px 22px; font-size: 0.96rem; }
+  .creds__head h2 { font-size: 1.42rem; }
 }
 
 /* --------------------------------------------------------------------------
