@@ -104,14 +104,14 @@
   /* Radius */
   --r-hero:   32px;
   --r-card:   24px;
-  --r-inner:  18px;
+  --r-inner:  16px;
   --r-button: 999px;
   --r-pill:   999px;
   --r-chip:   8px;
 
   /* Rhythm */
-  --pad-card:    26px;
-  --gap-card:    14px;
+  --pad-card:    24px;
+  --gap-card:    16px;
   --gap-element: 12px;
   --inset:       24px;
   --max:         1180px;
@@ -126,7 +126,7 @@
   /* Type */
   --font: "Avenir Next", "Avenir Next LT Pro", Avenir, -apple-system,
           BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI",
-          Inter, system-ui, sans-serif;
+          system-ui, sans-serif;
 
   /* Elevation. On a black ground a drop shadow is invisible, so separation
      comes from a solid fill plus a solid hairline. */
@@ -227,7 +227,7 @@ em { font-style: normal; }
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   margin: 0 0 16px;
   padding: 0;
   border: 0;
@@ -282,9 +282,9 @@ em { font-style: normal; }
 section { position: relative; }
 
 .section { padding-block: var(--section-y); }
-.section--tight { padding-block: clamp(40px, 5vw, 62px); }
+.section--tight { padding-block: clamp(40px, 5vw, 64px); }
 
-.section-head { max-width: 680px; margin-bottom: clamp(38px, 5vw, 60px); }
+.section-head { max-width: 680px; margin-bottom: clamp(40px, 5vw, 60px); }
 .section-head.center { margin-inline: auto; }
 .section-head .lede { margin-top: 20px; }
 .section-head h2 { max-width: 20ch; }
@@ -415,13 +415,14 @@ section { position: relative; }
 
 .card--lg { padding: clamp(24px, 3.2vw, 40px); }
 
-.card h3 { margin-bottom: 10px; color: var(--text-hi); }
+.card h3 { margin-bottom: 12px; color: var(--text-hi); }
 .card p  { color: var(--text-low); font-size: 0.975rem; line-height: 1.58; max-width: 54ch; }
 
 .grid { display: grid; gap: var(--gap-card); }
 .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
 .card--hover {
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
@@ -455,7 +456,7 @@ section { position: relative; }
 .tile {
   display: block;
   width: auto; height: auto;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   background: none;
   border: 0;
   color: var(--focus);
@@ -484,8 +485,8 @@ section { position: relative; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 15px 27px;
+  gap: 12px;
+  padding: 16px 28px;
   border-radius: var(--r-button);
   font-size: 0.97rem;
   font-weight: 600;
@@ -518,9 +519,9 @@ section { position: relative; }
 }
 .btn--glass:hover { border-color: #4B4B59; background: #1E1E27; }
 
-.btn--lg { padding: 17px 32px; font-size: 1.02rem; }
+.btn--lg { padding: 16px 32px; font-size: 1.02rem; }
 /* The nav CTA sits two inches from a bloom. A glow on top of a glow is haze. */
-.btn--sm { padding: 11px 20px; font-size: 0.88rem; }
+.btn--sm { padding: 12px 20px; font-size: 0.88rem; }
 .btn--primary.btn--sm { box-shadow: none; }
 .btn--primary.btn--sm:hover { box-shadow: none; }
 
@@ -528,13 +529,13 @@ section { position: relative; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 .center .btn-row { justify-content: center; }
 
 /* Microcopy that sits directly under a CTA. */
 .btn-note {
-  margin-top: 18px;
+  margin-top: 20px;
   font-size: 0.86rem;
   color: var(--text-faint);
   letter-spacing: 0.005em;
@@ -548,13 +549,13 @@ section { position: relative; }
 .link-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   color: var(--focus);
   font-size: 0.95rem;
   font-weight: 600;
   transition: gap var(--dur) var(--ease);
 }
-.link-arrow:hover { gap: 11px; }
+.link-arrow:hover { gap: 12px; }
 
 /* --------------------------------------------------------------------------
    9. Header
@@ -589,7 +590,7 @@ section { position: relative; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
   color: var(--text-hi);
   font-size: 1.06rem;
@@ -605,7 +606,7 @@ section { position: relative; }
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 32px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -634,11 +635,11 @@ section { position: relative; }
 .header__right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
-.socials { display: flex; align-items: center; gap: 15px; }
+.socials { display: flex; align-items: center; gap: 16px; }
 .socials a {
   color: var(--text-faint);
   transition: color var(--dur) var(--ease);
@@ -676,7 +677,7 @@ section { position: relative; }
   background: #000;
   -webkit-backdrop-filter: none;
           backdrop-filter: none;
-  padding: 30px var(--inset) 48px;
+  padding: 32px var(--inset) 48px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -688,14 +689,14 @@ section { position: relative; }
 .mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
 .mobile-menu a.mobile-link {
   display: block;
-  padding: 17px 0;
+  padding: 16px 0;
   font-size: 1.3rem;
   font-weight: 500;
   color: var(--text-hi);
   border-bottom: 1px solid var(--line);
 }
 .mobile-menu .btn { width: 100%; margin-top: 28px; }
-.mobile-menu .socials { margin-top: 30px; gap: 24px; justify-content: center; }
+.mobile-menu .socials { margin-top: 32px; gap: 24px; justify-content: center; }
 .mobile-menu .socials svg { width: 21px; height: 21px; }
 
 /* --------------------------------------------------------------------------
@@ -703,7 +704,7 @@ section { position: relative; }
    -------------------------------------------------------------------------- */
 
 .hero {
-  padding-top: clamp(104px, 12vw, 150px);
+  padding-top: clamp(104px, 12vw, 152px);
   padding-bottom: clamp(28px, 5vw, 56px);
   text-align: center;
 }
@@ -717,7 +718,7 @@ section { position: relative; }
   line-height: 1.5;
 }
 
-.hero .btn-row { margin-top: 34px; justify-content: center; }
+.hero .btn-row { margin-top: 36px; justify-content: center; }
 
 /* One line of plain fact under the buttons. Replaces the old rating pill,
    which was a tinted capsule doing the job a sentence does better. */
@@ -750,8 +751,8 @@ section { position: relative; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px 26px;
-  margin-top: 26px;
+  gap: 12px 28px;
+  margin-top: 28px;
 }
 .trust span {
   display: inline-flex;
@@ -768,7 +769,7 @@ section { position: relative; }
 .hero--split .wrap {
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
-  gap: clamp(30px, 5vw, 68px);
+  gap: clamp(32px, 5vw, 68px);
   align-items: center;
   text-align: left;
 }
@@ -862,7 +863,7 @@ section { position: relative; }
   inset: 0;
   display: grid;
   place-content: center;
-  gap: 10px;
+  gap: 12px;
   text-align: center;
   padding: 24px;
   background:
@@ -1202,7 +1203,7 @@ section { position: relative; }
 .ex {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
   white-space: nowrap;
   color: var(--text-hi);
 }
@@ -1225,8 +1226,8 @@ section { position: relative; }
 /* X's glyph IS its wordmark, so it gets no name beside it. */
 .ex--mark .ex__logo { width: 27px; height: 27px; }
 
-.creds { padding-block: clamp(46px, 6vw, 76px); }
-.creds__head { text-align: center; margin-bottom: clamp(34px, 4vw, 52px); }
+.creds { padding-block: clamp(48px, 6vw, 76px); }
+.creds__head { text-align: center; margin-bottom: clamp(36px, 4vw, 52px); }
 .creds__head h2 {
   font-size: clamp(1.5rem, 2.9vw, 2.15rem);
   letter-spacing: -0.03em;
@@ -1234,7 +1235,7 @@ section { position: relative; }
   margin-inline: auto;
 }
 .creds__head p {
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   max-width: 46ch;
   font-size: 0.99rem;
   color: var(--text-faint);
@@ -1244,7 +1245,7 @@ section { position: relative; }
    13. Steps
    -------------------------------------------------------------------------- */
 
-.steps { counter-reset: step; gap: clamp(26px, 3.2vw, 46px); }
+.steps { counter-reset: step; gap: clamp(28px, 3.2vw, 48px); }
 
 /* Four identical dark boxes holding four sentences of different lengths is a
    template. A ruled column is the same information with the box removed, and
@@ -1252,14 +1253,14 @@ section { position: relative; }
    edge. */
 .step {
   position: relative;
-  padding: 22px 0 0;
+  padding: 24px 0 0;
   border: 0;
   border-top: 1px solid var(--line-hi);
   border-radius: 0;
   background: none;
 }
 .step:hover { background: none; transform: none; }
-.step h3 { margin-bottom: 10px; color: var(--text-hi); }
+.step h3 { margin-bottom: 12px; color: var(--text-hi); }
 .step p { color: var(--text-low); font-size: 0.99rem; line-height: 1.56; }
 
 /* The step number is a number, set in the accent, not a glowing token in a
@@ -1302,7 +1303,7 @@ section { position: relative; }
   margin-left: 4px;
 }
 
-.stat { text-align: center; padding: clamp(22px, 2.6vw, 30px); }
+.stat { text-align: center; padding: clamp(24px, 2.6vw, 32px); }
 .stat__n {
   display: block;
   font-size: clamp(1.85rem, 3.4vw, 2.5rem);
@@ -1311,7 +1312,7 @@ section { position: relative; }
   letter-spacing: -0.035em;
   color: var(--text-hi);
   font-variant-numeric: tabular-nums;
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 .stat__n em { font-style: normal; color: var(--focus); }
 .stat__l {
@@ -1366,7 +1367,7 @@ section { position: relative; }
 .split--narrow { grid-template-columns: 1.15fr 0.85fr; }
 
 /* A tight list of claims under a split heading. Replaces stacked paragraphs. */
-.ticks { display: grid; gap: 17px; margin: 30px 0 0; padding: 0; list-style: none; }
+.ticks { display: grid; gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; }
 .ticks li {
   display: grid;
   grid-template-columns: 22px 1fr;
@@ -1380,7 +1381,7 @@ section { position: relative; }
 .ticks li::before {
   content: "";
   width: 21px; height: 21px;
-  margin-top: 2px;
+  margin-top: 4px;
   border-radius: 50%;
   background:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>") center / 12px no-repeat,
@@ -1404,8 +1405,8 @@ section { position: relative; }
 .acc summary {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 21px 24px;
+  gap: 16px;
+  padding: 20px 24px;
   cursor: pointer;
   list-style: none;
   color: var(--text-hi);
@@ -1447,21 +1448,21 @@ section { position: relative; }
    17. Timeline
    -------------------------------------------------------------------------- */
 
-.timeline { position: relative; padding-left: 30px; }
+.timeline { position: relative; padding-left: 32px; }
 .timeline::before {
   content: "";
   position: absolute;
-  left: 5px; top: 8px; bottom: 8px;
+  left: 4px; top: 8px; bottom: 8px;
   width: 1px;
   background: linear-gradient(180deg, var(--focus), var(--focus-deep) 42%, #24242D);
 }
 
-.timeline__item { position: relative; padding-bottom: 34px; }
+.timeline__item { position: relative; padding-bottom: 36px; }
 .timeline__item:last-child { padding-bottom: 0; }
 .timeline__item::before {
   content: "";
   position: absolute;
-  left: -30px; top: 7px;
+  left: -32px; top: 8px;
   width: 11px; height: 11px;
   border-radius: 50%;
   background: var(--focus);
@@ -1476,7 +1477,7 @@ section { position: relative; }
   color: var(--focus);
   margin-bottom: 8px;
 }
-.timeline__item h4 { margin-bottom: 7px; color: var(--text-hi); }
+.timeline__item h4 { margin-bottom: 8px; color: var(--text-hi); }
 .timeline__item p { color: var(--text-low); font-size: 0.97rem; }
 
 /* --------------------------------------------------------------------------
@@ -1486,7 +1487,7 @@ section { position: relative; }
 .quote { padding: clamp(24px, 3vw, 32px); }
 .quote { display: flex; flex-direction: column; }
 .quote blockquote {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   font-size: clamp(1.06rem, 1.5vw, 1.2rem);
   line-height: 1.5;
   color: var(--text-hi);
@@ -1496,13 +1497,13 @@ section { position: relative; }
 .quote figcaption {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
   margin-top: auto;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-mid);
 }
-.quote .stars { display: inline-flex; gap: 2px; color: var(--limited); }
+.quote .stars { display: inline-flex; gap: 4px; color: var(--limited); }
 .quote .stars svg { width: 14px; height: 14px; fill: currentColor; }
 
 /* The about page aside follows the story instead of floating opposite the
@@ -1523,7 +1524,7 @@ section { position: relative; }
 .portrait figcaption {
   display: grid;
   gap: 4px;
-  padding: 18px 2px 0;
+  padding: 20px 4px 0;
 }
 .portrait figcaption strong {
   color: var(--text-hi);
@@ -1551,7 +1552,7 @@ section { position: relative; }
 .compare { padding: 0; overflow: hidden; }
 .compare table { width: 100%; border-collapse: collapse; }
 .compare th, .compare td {
-  padding: 15px 20px;
+  padding: 16px 20px;
   text-align: left;
   font-size: 0.95rem;
   border-bottom: 1px solid var(--line);
@@ -1587,7 +1588,7 @@ section { position: relative; }
 .field textarea,
 .field select {
   width: 100%;
-  padding: 13px 16px;
+  padding: 12px 16px;
   border-radius: var(--r-inner);
   border: 1px solid var(--line-hi);
   background: #0D0D12;
@@ -1622,17 +1623,17 @@ section { position: relative; }
   display: grid;
   grid-template-columns: 1.5fr repeat(3, 1fr);
   gap: clamp(28px, 4vw, 52px);
-  margin-bottom: 42px;
+  margin-bottom: 44px;
 }
 
 .footer__brand p {
-  margin-top: 15px;
+  margin-top: 16px;
   max-width: 34ch;
   font-size: 0.92rem;
   line-height: 1.62;
   color: var(--text-faint);
 }
-.footer__brand .socials { margin-top: 20px; gap: 18px; }
+.footer__brand .socials { margin-top: 20px; gap: 20px; }
 .footer__brand .socials svg { width: 18px; height: 18px; }
 
 .footer__col h4 {
@@ -1643,7 +1644,7 @@ section { position: relative; }
   color: var(--text-faint);
   margin-bottom: 16px;
 }
-.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .footer__col a {
   font-size: 0.93rem;
   color: var(--text-low);
@@ -1656,7 +1657,7 @@ section { position: relative; }
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
   font-size: 0.83rem;
@@ -1700,7 +1701,7 @@ section { position: relative; }
    -------------------------------------------------------------------------- */
 
 .mt-0  { margin-top: 0 !important; }
-.mt-s  { margin-top: 18px; }
+.mt-s  { margin-top: 20px; }
 .mt-m  { margin-top: 28px; }
 .mt-l  { margin-top: 44px; }
 .mb-m  { margin-bottom: 28px; }
@@ -1717,17 +1718,18 @@ section { position: relative; }
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1040px) {
-  .nav { gap: 22px; }
+  .nav { gap: 24px; }
   .header__right { gap: 12px; }
   .socials { gap: 12px; }
 }
 
 @media (max-width: 1040px) {
   .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--5 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 
 @media (max-width: 980px) {
-  .footer__grid { grid-template-columns: 1fr 1fr; gap: 34px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer__brand { grid-column: 1 / -1; }
   .bento > * { grid-column: span 3; }
   .bento > .bento--wide { grid-column: span 6; }
@@ -1736,7 +1738,7 @@ section { position: relative; }
 @media (max-width: 860px) {
   .nav, .header__right { display: none; }
   .burger { display: flex; }
-  .split, .split--narrow { grid-template-columns: 1fr; gap: 38px; }
+  .split, .split--narrow { grid-template-columns: 1fr; gap: 40px; }
   .split--media-first > *:first-child,
   .split--media-first > *:last-child { order: 0; }
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1751,7 +1753,7 @@ section { position: relative; }
 }
 
 @media (max-width: 620px) {
-  :root { --inset: 18px; --pad-card: 20px; --gap-card: 12px; }
+  :root { --inset: 20px; --pad-card: 20px; --gap-card: 12px; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr; }
   .bento > *, .bento > .bento--wide, .bento > .bento--full { grid-column: 1 / -1; }
@@ -1764,17 +1766,17 @@ section { position: relative; }
     white-space: normal;
     text-align: center;
   }
-  .trust { gap: 8px 18px; }
+  .trust { gap: 8px 20px; }
   .hero__shot { max-width: 320px; }
-  .marquee__track { gap: 34px; }
-  .ex { gap: 9px; }
+  .marquee__track { gap: 36px; }
+  .ex { gap: 8px; }
   .ex__name { font-size: 1.02rem; }
   .ex__logo { width: 21px; height: 21px; }
   .phone-trio { gap: 8px; }
   .phone-trio .phone { max-width: 30vw; }
   .compare { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .compare table { min-width: 520px; }
-  .footer__grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   /* Keep the sticky CTA from covering the last thing on the page. */
   .footer__bottom { padding-bottom: 64px; }
 }
@@ -1783,7 +1785,7 @@ section { position: relative; }
 @media (max-width: 380px) {
   h1 { font-size: 2.4rem; }
   h2 { font-size: 1.78rem; }
-  .btn--lg { padding: 16px 22px; font-size: 0.96rem; }
+  .btn--lg { padding: 16px 24px; font-size: 0.96rem; }
   .creds__head h2 { font-size: 1.42rem; }
 }
 
