@@ -1694,7 +1694,7 @@ section { position: relative; }
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 .sticky-cta.is-in { opacity: 1; transform: none; }
-.sticky-cta .btn { width: 100%; }
+.sticky-cta .btn { width: 100%; display: flex; }
 
 /* --------------------------------------------------------------------------
    24. Utilities
