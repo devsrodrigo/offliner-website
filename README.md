@@ -8,7 +8,7 @@ at 400 MB installed.
 
 ```
 website/
-  index.html          Home. The funnel.
+  index.html          Home. The funnel. Interactive (Vue 3, see home/).
   why.html            Why Offliner. Science, symptoms, process, features, suggestion box.
   about.html          The story.
   support.html        FAQ. Apple requires a support URL for App Store listings.
@@ -21,7 +21,12 @@ website/
   assets/
     css/site.css      The whole design system. Ported from OfflinerDesignSystem.swift.
     js/site.js        ~2 KB. Menu, scroll reveal, accordion, mailto form.
-    img/              Empty. See assets/img/README.md for what goes here.
+    img/              Icons, og-image.png, screens/home.png, portrait.
+  home/
+    home.css          Home page styles (the paper and ink design).
+    home.js           Home page interactions: hero phone, steps, block screen,
+                      pricing, FAQ. Steps, FAQ answers and plans live here.
+    vue.global.prod.js  Vue 3.5, self-hosted (MIT). Renders the interactive parts.
 ```
 
 ## Running it locally
@@ -184,3 +189,19 @@ Leaving it grey is the lower risk choice and I would leave it.
 - Set up the three email addresses (`info@`, `support@`, `suggestions@`) on the
   `offliner.app` domain. Cloudflare Email Routing does this free in about two
   minutes and forwards everything to your normal inbox.
+
+## v6: paper and ink (October 2026)
+
+The home page is the Claude Design redesign: warm paper ground (#F3EEE4), ink
+text (#16130F), Instrument Serif for display type, Avenir Next (Nunito Sans
+off Apple devices) for everything else. It is a Vue template written straight
+into index.html with `[[ ]]` delimiters; most copy is plain HTML, while the
+steps, FAQ answers, plans and phone data live in `home/home.js`.
+
+The other pages keep their markup and use `assets/css/site.css`. The block at
+the bottom of that file ("v6 · Cream") re-skins them to match the home page.
+Add `on-dark` to any element to flip it to the dark palette (used for the
+footer, the charts and the closing call to action, `band-dark`).
+
+If you change the FAQ in home.js, update the FAQPage JSON-LD in index.html to
+match. Google requires structured data to match the visible answers.

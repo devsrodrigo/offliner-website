@@ -5,7 +5,7 @@
 > operating system level through Apple's Screen Time and Family Controls
 > frameworks, and every day you stay under your own limits counts towards a
 > streak. Time spent off those apps also earns XP and levels. It was built by
-> Rodrigo Atiye and is free to download on the App Store.
+> Rodrigo Atiye and is available on the App Store with a subscription.
 
 ## Key facts
 
@@ -15,7 +15,7 @@
 - **Developer:** Rodrigo Atiye
 - **Website:** https://offliner.app
 - **App Store:** https://apps.apple.com/app/id6758021299
-- **Price:** Free to download with in app purchases
+- **Price:** Subscription through the App Store: $4.99 a week, $9.99 a month, or $29.99 a year. No account required, cancel anytime in the App Store.
 - **Rating:** 5.0 on the App Store
 - **Privacy:** All usage is computed on device. No account, no upload, no tracking.
 

@@ -1,13 +1,22 @@
 {
   "name": "Offliner: Screen Time and App Blocker",
   "short_name": "Offliner",
-  "description": "The screen time app that measures to the second and blocks the apps eating your day.",
+  "description": "Lock the apps eating your day. Every clean day builds a streak, and every offline minute earns you XP.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0C12",
-  "theme_color": "#0B0C12",
+  "background_color": "#F3EEE4",
+  "theme_color": "#F3EEE4",
   "icons": [
-    { "src": "/assets/img/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ]
 }
