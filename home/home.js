@@ -13,7 +13,7 @@ class Component extends DCLogic {
     this.state = {
       heroTab: 'home', insights: false, ruleAdded: false, appSeg: 'detox',
       focusMode: 'pomodoro', focusLen: 25, focusLeft: 1500, focusRunning: false,
-      step: 0, paused: false, howVisible: false, howSeen: false,
+      step: 0,
       picked: { Instagram: true, TikTok: true, YouTube: true, X: false, Reddit: true, Facebook: false, Twitch: false },
       detox: 14, limit: 30, lockSheet: false,
       blockView: 'offliner', closeTries: 0, shake: 'shakeB',
@@ -21,32 +21,7 @@ class Component extends DCLogic {
     };
   }
   componentDidMount() {
-    // Steps autoplay only while "How does it work?" is on screen. It starts at step 1 the first time it scrolls into view.
-    this.startSteps = () => {
-      clearInterval(this.stepTimer);
-      this.stepTimer = setInterval(() => {
-        const auto = this.props.autoplay ?? true;
-        if (auto && !this.state.paused && this.state.howVisible) this.setState({ step: (this.state.step + 1) % 5, lockSheet: false });
-      }, 6000);
-    };
-    this.watchHow = () => {
-      const el = document.getElementById('how');
-      if (!el || typeof IntersectionObserver === 'undefined') { this.setState({ howVisible: true }); this.startSteps(); return; }
-      this.io = new IntersectionObserver((entries) => {
-        const vis = entries[0].isIntersecting;
-        if (vis === this.state.howVisible) return;
-        if (vis) {
-          const first = !this.state.howSeen;
-          this.setState(first ? { howVisible: true, howSeen: true, step: 0 } : { howVisible: true });
-          this.startSteps();
-        } else {
-          this.setState({ howVisible: false });
-          clearInterval(this.stepTimer);
-        }
-      }, { threshold: 0.45 });
-      this.io.observe(el);
-    };
-    this.howTry = setTimeout(this.watchHow, 50);
+    // The steps only advance when the visitor taps (a step row, or the button inside the phone).
     this.focusTimer = setInterval(() => {
       if (this.state.focusRunning) {
         const left = this.state.focusLeft - 1;
@@ -55,13 +30,10 @@ class Component extends DCLogic {
       }
     }, 1000);
   }
-  componentWillUnmount() { clearInterval(this.stepTimer); clearInterval(this.focusTimer); clearTimeout(this.howTry); if (this.io) this.io.disconnect(); }
+  componentWillUnmount() { clearInterval(this.focusTimer); }
   renderVals() {
     const accent = this.props.accent ?? '#FF5A1F';
     const s = this.state;
-    const autoOn = (this.props.autoplay ?? true) && !s.paused;
-    const auto = autoOn && !!s.howVisible;
-    const pause = { paused: true };
 
     // ---------- hero app ----------
     const view = s.insights ? 'insights' : s.heroTab;
@@ -105,20 +77,20 @@ class Component extends DCLogic {
     ];
     const steps = STEPS.map((x, i) => {
       const active = i === s.step;
-      return { ...x, active, fg: active ? '#16130F' : '#6E6558', showProg: active && auto, showStatic: active && !auto,
-        pick: () => this.setState({ step: i, paused: true, lockSheet: false }) };
+      return { ...x, active, fg: active ? '#16130F' : '#6E6558',
+        pick: () => this.setState({ step: i, lockSheet: false }) };
     });
     const pickApps = Object.keys(s.picked).map(n => {
       const on = s.picked[n];
       return { n, on, i: n[0], tile: TILE[n], bg: on ? '#FF5A1F' : 'transparent', bd: on ? '#FF5A1F' : '#4A4A55',
-        toggle: () => { const p = { ...this.state.picked }; p[n] = !p[n]; this.setState({ picked: p, paused: true }); } };
+        toggle: () => { const p = { ...this.state.picked }; p[n] = !p[n]; this.setState({ picked: p }); } };
     });
     const pickedCount = Object.values(s.picked).filter(Boolean).length;
     const now = new Date();
     const end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + s.detox);
     const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const detoxEnd = MON[end.getMonth()] + ' ' + end.getDate();
-    const detoxOpts = [7, 14, 21, 30].map(d => ({ t: d + 'd', cls: 'chipo press' + (s.detox === d ? ' on' : ''), pick: () => this.setState({ detox: d, paused: true }) }));
+    const detoxOpts = [7, 14, 21, 30].map(d => ({ t: d + 'd', cls: 'chipo press' + (s.detox === d ? ' on' : ''), pick: () => this.setState({ detox: d }) }));
     const limitNote = s.limit <= 30 ? 'Under your limit, the streak keeps going.' : 'With Lock Mode on, any change to this lands tomorrow.';
     const timeBack = [['Reading', 72, '#FF5A1F', '9h'], ['Training', 58, '#FF7A40', '7h'], ['Sleep', 40, '#FFB020', '5h'], ['Journal', 18, '#9C9CA8', '2h']]
       .map(([k, w, c, v]) => ({ k, w: w + '%', c, v }));
@@ -171,16 +143,16 @@ class Component extends DCLogic {
       focusClock, focusDeg, focusModes, focusLens, focusSub, focusBtn: s.focusRunning ? 'Pause' : (s.focusLeft < total ? 'Resume' : 'Start session'),
       toggleFocus: () => this.setState({ focusRunning: !this.state.focusRunning }),
       marquee: marqueeBase.concat(marqueeBase, marqueeBase, marqueeBase),
-      steps, autoLabel: autoOn ? 'Pause autoplay' : 'Resume autoplay', toggleAuto: () => this.setState({ paused: !this.state.paused }),
+      steps,
       st0: s.step === 0, st1: s.step === 1, st2: s.step === 2, st3: s.step === 3, st4: s.step === 4,
-      nextStep: () => this.setState({ step: Math.min(4, this.state.step + 1), paused: true }),
-      restartSteps: () => this.setState({ step: 0, paused: true }),
+      nextStep: () => this.setState({ step: Math.min(4, this.state.step + 1), lockSheet: false }),
+      restartSteps: () => this.setState({ step: 0, lockSheet: false }),
       pickApps, pickedCount, detox: s.detox, detoxEnd, detoxOpts,
       limit: s.limit, limitPct: Math.round(s.limit / 120 * 100) + '%', limitNote,
-      limitDown: () => this.setState({ limit: Math.max(5, this.state.limit - 5), paused: true }),
-      limitUp: () => this.setState({ limit: Math.min(120, this.state.limit + 5), paused: true }),
+      limitDown: () => this.setState({ limit: Math.max(5, this.state.limit - 5) }),
+      limitUp: () => this.setState({ limit: Math.min(120, this.state.limit + 5) }),
       lockSheet: s.lockSheet, lockSub: 'On. Changes land tomorrow.',
-      tryLockOff: () => this.setState({ lockSheet: true, paused: true }), closeSheet: () => this.setState({ lockSheet: false }),
+      tryLockOff: () => this.setState({ lockSheet: true }), closeSheet: () => this.setState({ lockSheet: false }),
       timeBack,
       showOff: s.blockView === 'offliner', showST: s.blockView === 'st', blockTabs, blockCaption,
       shakeClass: s.shake, lockedLine: lines[Math.min(s.closeTries, lines.length - 1)],
@@ -190,7 +162,7 @@ class Component extends DCLogic {
   }
 }
 
-const props = { accent: '#FF5A1F', autoplay: true };
+const props = { accent: '#FF5A1F' };
 const comp = new Component(props);
 const store = Vue.reactive(comp.renderVals());
 let queued = false;
